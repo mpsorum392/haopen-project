@@ -55,7 +55,7 @@ export default function App() {
             </div>
             <div>
               <h1 className="text-lg font-display font-bold leading-tight tracking-tight uppercase">H&A Open</h1>
-              <p className="text-[10px] font-mono opacity-40 uppercase tracking-widest">June 2026</p>
+              <p className="text-[10px] font-mono opacity-50 uppercase tracking-widest">Est. 2020</p>
             </div>
           </div>
         </div>
