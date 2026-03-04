@@ -201,28 +201,6 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
       </div>
 
       <div className="space-y-8">
-        <div className="w-1/2 aspect-[16/6] glass-panel p-6 rounded-3xl flex flex-col justify-center mx-auto">
-          <div className="space-y-4">
-            <div className="flex justify-between items-center">
-              <span className="text-lg font-mono opacity-50 uppercase tracking-widest">Blue</span>
-              <span className="text-2xl font-display font-bold text-blue-400">{bluePoints}</span>
-            </div>
-            <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-blue-500 transition-all duration-500"
-                style={{ width: `${(bluePoints / (bluePoints + pinkPoints || 1)) * 100}%` }}
-              />
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-lg font-mono opacity-50 uppercase tracking-widest">Pink</span>
-              <span className="text-2xl font-display font-bold text-pink-400">{pinkPoints}</span>
-            </div>
-            <div className="pt-2 border-t border-white/5 mt-2">
-              <p className="text-[13px] font-mono text-white font-bold text-center uppercase tracking-tighter italic">12.5 pts to win Cup</p>
-            </div>
-          </div>
-        </div>
-
         <div className="aspect-video rounded-3xl overflow-hidden border border-white/10 relative group">
           <img
             src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1200&q=80"
