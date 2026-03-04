@@ -188,7 +188,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
           <div className="grid grid-cols-2 gap-4">
             <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
               <p className="text-[10px] font-mono uppercase opacity-40">Thursday</p>
-              <p className="font-bold">Blue Top Ride GC</p>
+              <p className="font-bold">Blue Top Ridge GC</p>
               <p className="text-xs opacity-40">Riverside, IA</p>
             </div>
             <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
@@ -481,17 +481,17 @@ interface CrewMember {
 }
 
 const CREW: CrewMember[] = [
-  { name: 'Mike Sorum',      nickname: 'Old',    handicap: 8,  age: 45, image: mikePic,   likes: [], dislikes: [] },
+  { name: 'Mike Sorum',      nickname: 'Commish',handicap: 8,  age: 45, image: mikePic,   likes: [], dislikes: [] },
   { name: 'Kyle Koehler',    nickname: 'Killer', handicap: 16, age: 45, image: kyleKPic,  likes: [], dislikes: [] },
   { name: 'Kevin DeMarco',   nickname: 'Outs',   handicap: 14, age: 40, image: kevinPic,  likes: [], dislikes: [] },
-  { name: 'Derek Bernacchi', nickname: 'Juice',  handicap: 27, age: 39, image: derekPic,  likes: [], dislikes: [] },
-  { name: 'Jeff Fitzke',     nickname: 'OoBR',   handicap: 14, age: 49, image: fitzkePic, likes: [], dislikes: [] },
-  { name: 'Rob Fabian',      nickname: 'DDC',    handicap: 12, age: 44, image: robPic,    likes: [], dislikes: [] },
+  { name: 'Derek Bernacchi', nickname: 'Juice',  handicap: 27, age: 38, image: derekPic,  likes: [], dislikes: [] },
+  { name: 'Jeff Fitzke',     nickname: 'Out of Bounds Right!', handicap: 14, age: 50, image: fitzkePic, likes: [], dislikes: [] },
+  { name: 'Rob Fabian',      nickname: 'Drunk Dont Care', handicap: 12, age: 44, image: robPic,    likes: [], dislikes: [] },
   { name: 'Kyle Swart',      nickname: 'Super',  handicap: 4,  age: 40, image: swartPic,  likes: [], dislikes: [] },
-  { name: 'Eric Wakefield',  nickname: 'Oldest', handicap: 11, age: 57, image: ericPic,   likes: [], dislikes: [] },
+  { name: 'Eric Wakefield',  nickname: 'Old Man',handicap: 11, age: 57, image: ericPic,   likes: [], dislikes: [] },
   { name: 'Karl Rohrbaugh',  nickname: 'Life',   handicap: 14, age: 51, image: karlPic,   likes: [], dislikes: [] },
   { name: 'Troy Thompson',   nickname: 'BM3',    handicap: 8,  age: 47, image: troyPic,   likes: [], dislikes: [] },
-  { name: 'Scott Kardell',   nickname: 'Chill',  handicap: 20, age: 57, image: scottPic,  likes: [], dislikes: [] },
+  { name: 'Scott Kardell',   nickname: 'Chill',  handicap: 18, age: 56, image: scottPic,  likes: [], dislikes: [] },
 ];
 
 function CrewView() {
