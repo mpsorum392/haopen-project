@@ -8,11 +8,8 @@ import {
   Home,
   ChevronRight,
   MapPin,
-  Clock,
   ShieldCheck,
   Gift,
-  Menu,
-  X,
   UserRound,
   ThumbsUp,
   ThumbsDown,
@@ -135,7 +132,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
       <div className="space-y-8">
         <div className="mb-12">
           <h2 className="text-4xl font-display font-bold mb-3 tracking-tight">The Hackers & Addicts Open</h2>
-          <p className="text-emerald-500 font-mono uppercase tracking-widest text-xs">June 24th - 28th, 2026</p>
+          <p className={"text-emerald-500 font-mono uppercase tracking-widest text-xs"}>June 24th - 28th, 2026</p>
         </div>
 
         <section className="glass-panel p-8 rounded-3xl">
