@@ -11,8 +11,6 @@ import {
   Clock,
   ShieldCheck,
   Gift,
-  Plus,
-  Minus,
   Menu,
   X,
   UserRound,
@@ -33,39 +31,12 @@ import karlPic    from '../images/karl-pic.jpeg';
 import troyPic    from '../images/troy-pic.jpeg';
 import robPic     from '../images/rob-pic.jpeg';
 
-const STORAGE_KEY = 'haopen_matches';
-
-function loadMatches(): Match[] {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) return JSON.parse(stored);
-  } catch {}
-  return INITIAL_MATCHES;
-}
-
-function saveMatches(matches: Match[]) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(matches));
-}
-
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('home');
-  const [matches, setMatches] = useState<Match[]>(loadMatches);
+  const matches = INITIAL_MATCHES;
 
-  const updateScore = (matchId: number, blueScore: number, pinkScore: number) => {
-    let winner: string | null = null;
-    if (blueScore > pinkScore) winner = 'Blue Hackers';
-    else if (pinkScore > blueScore) winner = 'Pink Addicts';
-    else if (blueScore === pinkScore && blueScore > 0) winner = 'Draw';
-
-    const updated = matches.map(m =>
-      m.id === matchId ? { ...m, blue_score: blueScore, pink_score: pinkScore, winner } : m
-    );
-    setMatches(updated);
-    saveMatches(updated);
-  };
-
-  const bluePoints = matches.reduce((acc, m) => acc + m.blue_score, 0);
-  const pinkPoints = matches.reduce((acc, m) => acc + m.pink_score, 0);
+  const bluePoints = matches.reduce((acc: number, m: Match) => acc + m.blue_score, 0);
+  const pinkPoints = matches.reduce((acc: number, m: Match) => acc + m.pink_score, 0);
 
   const navItems = [
     { id: 'home',        label: 'Home',        mobileLabel: 'Home',    icon: Home },
@@ -148,7 +119,7 @@ export default function App() {
             {activeTab === 'home' && <HomeView bluePoints={bluePoints} pinkPoints={pinkPoints} />}
             {activeTab === 'crew' && <CrewView />}
             {activeTab === 'leaderboard' && <LeaderboardView matches={matches} />}
-            {activeTab === 'matchups' && <MatchupsView matches={matches} onUpdate={updateScore} />}
+            {activeTab === 'matchups' && <MatchupsView matches={matches} />}
             {activeTab === 'schedule' && <ScheduleView />}
             {activeTab === 'rules' && <RulesView />}
           </motion.div>
@@ -310,7 +281,7 @@ function LeaderboardView({ matches }: { matches: Match[] }) {
   );
 }
 
-function MatchupsView({ matches, onUpdate }: { matches: Match[], onUpdate: (id: number, b: number, p: number) => void }) {
+function MatchupsView({ matches }: { matches: Match[] }) {
   const [selectedDay, setSelectedDay] = useState<'Thursday' | 'Friday' | 'Saturday'>('Thursday');
 
   const front9Matches = matches.filter(m => m.day === selectedDay && m.session === 'Front 9');
@@ -318,23 +289,23 @@ function MatchupsView({ matches, onUpdate }: { matches: Match[], onUpdate: (id: 
 
   const renderMatch = (match: Match) => {
     return (
-      <div key={match.id} className="glass-panel rounded-3xl overflow-hidden flex flex-col md:flex-row group hover:border-white/20 transition-all">
-        <div className="p-8 flex-1 border-b md:border-b-0 md:border-r border-white/10">
+      <div key={match.id} className="glass-panel rounded-2xl overflow-hidden flex flex-col md:flex-row group hover:border-white/20 transition-all">
+        <div className="p-5 flex-1 border-b md:border-b-0 md:border-r border-white/10">
           <div className="flex justify-between items-start mb-6">
             <span className="text-[10px] font-mono uppercase bg-white/10 px-3 py-1 rounded-lg font-bold">{match.match_type}</span>
-            <span className="text-xs font-display font-medium opacity-40">{match.day} • {match.session}</span>
+            <span className="text-md font-display font-medium opacity-40">{match.day} • {match.session}</span>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-2 flex-1 w-full">
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="space-y-2">
               <p className="text-[10px] font-mono uppercase text-blue-400 font-bold tracking-widest">Blue Hackers</p>
               <p className="text-xl font-display font-bold">Blue 1</p>
               {match.match_type === '2v2' && <p className="text-xl font-display font-bold">Blue 2</p>}
             </div>
 
-            <div className="text-xs font-mono opacity-20 font-bold py-2 md:py-0">VS</div>
+            <div className="text-xs font-mono opacity-20 font-bold py-2 md:py-0 md:px-2">VS</div>
 
-            <div className="space-y-2 flex-1 text-right w-full">
+            <div className="space-y-2 text-right md:text-left">
               <p className="text-[10px] font-mono uppercase text-pink-400 font-bold tracking-widest">Pink Addicts</p>
               <p className="text-xl font-display font-bold">Pink 1</p>
               {match.match_type === '2v2' && <p className="text-xl font-display font-bold">Pink 2</p>}
@@ -342,38 +313,22 @@ function MatchupsView({ matches, onUpdate }: { matches: Match[], onUpdate: (id: 
           </div>
         </div>
 
-        <div className="p-8 bg-white/5 w-full md:w-64 flex flex-col justify-center items-center gap-4">
-          <p className="text-[10px] font-mono uppercase opacity-30 font-bold">Match Score</p>
-          <div className="flex items-center gap-6">
-            <div className="flex flex-col items-center gap-2">
-              <button
-                onClick={() => onUpdate(match.id, match.blue_score + 0.5, match.pink_score)}
-                className="w-8 h-8 flex items-center justify-center bg-blue-500/20 hover:bg-blue-500/40 rounded-full text-blue-400 transition-colors"
-              ><Plus size={14}/></button>
-              <span className="text-4xl font-display font-bold">{match.blue_score}</span>
-              <button
-                onClick={() => onUpdate(match.id, Math.max(0, match.blue_score - 0.5), match.pink_score)}
-                className="w-8 h-8 flex items-center justify-center bg-blue-500/10 hover:bg-blue-500/20 rounded-full text-blue-400/50 transition-colors"
-              ><Minus size={14}/></button>
+        <div className="p-8 bg-white/5 w-full md:w-48 flex flex-col justify-center items-center gap-3">
+          <p className="text-[15px] font-mono uppercase opacity-60 font-bold">Match Score</p>
+          {match.blue_score === 0 && match.pink_score === 0 ? (
+            <p className="text-md font-mono opacity-20 italic">TBD</p>
+          ) : (
+            <div className="flex items-center gap-4">
+              <span className="text-4xl font-display font-bold text-blue-400">{match.blue_score}</span>
+              <span className="text-xl opacity-20 font-display">:</span>
+              <span className="text-4xl font-display font-bold text-pink-400">{match.pink_score}</span>
             </div>
-            <div className="text-2xl opacity-10 font-display">:</div>
-            <div className="flex flex-col items-center gap-2">
-              <button
-                onClick={() => onUpdate(match.id, match.blue_score, match.pink_score + 0.5)}
-                className="w-8 h-8 flex items-center justify-center bg-pink-500/20 hover:bg-pink-500/40 rounded-full text-pink-400 transition-colors"
-              ><Plus size={14}/></button>
-              <span className="text-4xl font-display font-bold">{match.pink_score}</span>
-              <button
-                onClick={() => onUpdate(match.id, match.blue_score, Math.max(0, match.pink_score - 0.5))}
-                className="w-8 h-8 flex items-center justify-center bg-pink-500/10 hover:bg-pink-500/20 rounded-full text-pink-400/50 transition-colors"
-              ><Minus size={14}/></button>
-            </div>
-          </div>
+          )}
           {match.winner && (
-            <div className={`mt-2 px-4 py-1 rounded-full text-[10px] font-mono uppercase font-bold ${
+            <div className={`px-4 py-1 rounded-full text-[10px] font-mono uppercase font-bold ${
               match.winner === 'Draw' ? 'bg-white/10 text-white/60' : match.winner.includes('Blue') ? 'bg-blue-500 text-white' : 'bg-pink-500 text-white'
             }`}>
-              {match.winner === 'Draw' ? 'Match Halved' : `${match.winner.split(' ')[0]} Wins`}
+              {match.winner === 'Draw' ? 'Halved' : `${match.winner.split(' ')[0]} Wins`}
             </div>
           )}
         </div>
@@ -382,7 +337,7 @@ function MatchupsView({ matches, onUpdate }: { matches: Match[], onUpdate: (id: 
   };
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 max-w-2xl">
       <div className="flex justify-center">
         <div className="flex bg-white/5 rounded-2xl p-1 border border-white/10">
           {['Thursday', 'Friday', 'Saturday'].map(day => (
