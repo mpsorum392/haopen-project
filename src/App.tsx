@@ -140,7 +140,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
             Event Overview
           </h3>
           <p className="text-lg leading-relaxed opacity-60 mb-8">
-            Welcome to the 6th Annual Hackers & Addicts Open. 12 golfers, 2 teams, 3 days of grueling match play across Iowa's finest courses.
+            Welcome to the 7th Annual Hackers & Addicts Open. 12 golfers, 2 teams, 3 days of grueling match play across Iowa's finest courses.
             The Blue Hackers face off against the Pink Addicts in a quest for eternal glory.
               </p>
           <p className="text-lg leading-relaxed opacity-60 mb-8">
