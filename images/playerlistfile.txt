@@ -1,0 +1,12 @@
+PlayerFirst;PlayerLast;PlayerNickname;Handicap;Age;
+Kyle;Swart;Super;4;40;
+Kyle;Koehler;Killer;16;45;
+Kevin;DeMarco;Outs;14;40;
+Eric;Wakefield;Oldest;11;57;
+Scott;Kardell;Chill;20;57;
+Derek;Bernacchi;Juice;27;39;
+Jeff;Fitzke;OoBR;14;49;;
+Karl;Rohrbaugh;Life;14;51;
+Troy;Thompson;BM3;8;47;
+Rob;Fabian;DDC;12;44;
+Mike;Sorum;Old;8;45
