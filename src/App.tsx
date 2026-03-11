@@ -139,20 +139,66 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
           <h3 className="text-2xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
             Event Overview
           </h3>
-          <p className="text-lg leading-relaxed opacity-60 mb-8">
+          <p className="text-md leading-relaxed opacity-60 mb-8">
             Welcome to the 7th Annual Hackers & Addicts Open. 12 golfers, 2 teams, 3 days of grueling match play across Iowa's finest courses.
-            The Blue Hackers face off against the Pink Addicts in a quest for eternal glory.
-              </p>
-          <p className="text-lg leading-relaxed opacity-60 mb-8">
-                We will leave Wednesday the 24th no later than 5pm in order to arrive to the Riverside Casino by 930p.  We will
-              stay the night there in shared rooms with 36 holes on tap for Thursday.  The morning round will be our first competition round with the afternoon
-              being up to each player.
+            The Blue Hackers face off against the Pink Addicts in a quest for eternal glory.<br/>
           </p>
-          <p className="text-lg leading-relaxed opacity-60 mb-8">
-                After golf that day we will make the hour drive into Burlington and arrive to Spirit Hollow GC.
-              36 holes scheduled Friday and Saturday but again the morning round will be our competition round and the afternoon is up to each player.
-              We will have a tee time on the books for early Sunday but in years past it is up in the air on if anyone stays and plays or we head home.
+        </section>
+          <section className="glass-panel p-8 rounded-3xl">
+          <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
+            What's this going to cost you?
+          </h2>
+          <p className="text-md leading-relaxed opacity-60 mb-8">
+              Entry Fees:
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>$50 to go towards team competition</li>
+                  <li>$40 to swag for team polos</li>
+              </ul>
+              Lodging Costs:
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>$889-959 for 4 nights across casino and Spirit Hollow</li>
+              </ul>
+              Golf Green Fees:
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>$95 + replay fee if desired at Blue Top</li>
+                  <li>Spirit Hollow included in lodging cost</li>
+              </ul>
+              Travel cost (gas):
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>$25 if not driving</li>
+              </ul>
+              Total:
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>$1099+</li>
+              </ul>
           </p>
+          </section>
+          <section className="glass-panel p-8 rounded-3xl">
+          <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
+            Travel Plans
+          </h2>
+          <p className="text-md leading-relaxed opacity-60 mb-8">
+              Wednesday the 24th - Leaving Home
+             <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+              <li>We will leave Wednesday the 24th no later than 5pm in order to arrive to the Riverside Casino by 930p</li>
+              <li>Shared rooms for the group with stay and play package</li>
+             </ul>
+              Thursday the 25th - Riverside Casino
+             <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+              <li>Morning 18 will be our first competition round</li>
+              <li>Afternoon 18 for those who desire or casino time or pool/spa visits</li>
+              <li>Evening drive into Burlington and arrive to Spirit Hollow GC by 9pm (hour drive)</li>
+             </ul>
+              Friday 26th & Saturday 27th - Spirit Hollow
+             <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+              <li>36 holes scheduled both days - morning round is competition round and afternoon at your pleasure</li>
+             </ul>
+              Sunday the 28th - Heading Home
+             <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+              <li>Have a tee time on the books for early Sunday but in years past it is up in the air on if anyone stays and plays or we head home</li>
+             </ul>
+          </p>
+          </section>
           <div className="grid grid-cols-2 gap-4">
             <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
               <p className="text-[10px] font-mono uppercase opacity-40">Thursday</p>
@@ -165,7 +211,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
               <p className="text-xs opacity-40">Burlington, IA</p>
             </div>
           </div>
-        </section>
+
       </div>
 
       <div className="space-y-8">
@@ -433,17 +479,17 @@ interface CrewMember {
 }
 
 const CREW: CrewMember[] = [
-  { name: 'Mike Sorum',      nickname: 'Commish',handicap: 8,  age: 45, image: mikePic,   likes: [], dislikes: [] },
-  { name: 'Kyle Koehler',    nickname: 'Killer', handicap: 16, age: 45, image: kyleKPic,  likes: [], dislikes: [] },
-  { name: 'Kevin DeMarco',   nickname: 'Outs',   handicap: 14, age: 40, image: kevinPic,  likes: [], dislikes: [] },
-  { name: 'Derek Bernacchi', nickname: 'Juice',  handicap: 27, age: 38, image: derekPic,  likes: [], dislikes: [] },
-  { name: 'Jeff Fitzke',     nickname: 'Out of Bounds Right!', handicap: 14, age: 50, image: fitzkePic, likes: [], dislikes: [] },
-  { name: 'Rob Fabian',      nickname: 'Drunk Dont Care', handicap: 12, age: 44, image: robPic,    likes: [], dislikes: [] },
-  { name: 'Kyle Swart',      nickname: 'Super',  handicap: 4,  age: 40, image: swartPic,  likes: [], dislikes: [] },
-  { name: 'Eric Wakefield',  nickname: 'Old Man',handicap: 11, age: 57, image: ericPic,   likes: [], dislikes: [] },
-  { name: 'Karl Rohrbaugh',  nickname: 'Life',   handicap: 14, age: 51, image: karlPic,   likes: [], dislikes: [] },
-  { name: 'Troy Thompson',   nickname: 'BM3',    handicap: 8,  age: 47, image: troyPic,   likes: [], dislikes: [] },
-  { name: 'Scott Kardell',   nickname: 'Chill',  handicap: 18, age: 56, image: scottPic,  likes: [], dislikes: [] },
+  { name: 'Mike Sorum',      nickname: 'Commish',handicap: 7,  age: 45, image: mikePic,   likes: ['Making plans', 'Bossing people around', 'Buying golf gear', 'Angry tirades under his breath'], dislikes: ['People that do not follow his plans', 'Richards', 'Golf without gambling'] },
+  { name: 'Kyle Koehler',    nickname: 'Killer', handicap: 16, age: 45, image: kyleKPic,  likes: ['High paying contracts', 'Silencers', 'Long-range rifles', 'John Wick movies'], dislikes: ['Losing to Sorum', 'Jammed up firing pins', 'Antonio Banderas'] },
+  { name: 'Kevin DeMarco',   nickname: 'Outs',   handicap: 14, age: 40, image: kevinPic,  likes: ['Any chance to win on river', 'Building amazing simulators for his friends', 'Counting numbers'], dislikes: ['Breaking 90', 'Swinging less than 120%', 'Low limit BJ tables'] },
+  { name: 'Derek Bernacchi', nickname: 'Juice',  handicap: 27, age: 38, image: derekPic,  likes: ['Jose Canseco', 'Hitting bombs (with his SW)', 'Direct sunlight'], dislikes: ['None', 'Literally nothing'] },
+  { name: 'Jeff Fitzke',     nickname: 'Out of Bounds Right!', handicap: 12, age: 50, image: fitzkePic, likes: ['Raw steak', 'Green golf balls', 'The field of tall grass on right side of fairway'], dislikes: ['Being sober', 'Unchopped wood', 'Unopened wine bottles'] },
+  { name: 'Rob Fabian',      nickname: 'Drunk Dont Care', handicap: 12, age: 44, image: robPic,    likes: ['Sailor Jerry', 'Banana slices', 'Staircase slides'], dislikes: ['Fun haters', 'Virgin margaritas'] },
+  { name: 'Kyle Swart',      nickname: 'Super',  handicap: 4,  age: 40, image: swartPic,  likes: ['Turf care and feeding', 'Playing top 100 courses', 'Radon mitigation systems'], dislikes: ['Losing in anything to anyone', 'Poorly manicured fairways'] },
+  { name: 'Eric Wakefield',  nickname: 'Old Man',handicap: 11, age: 57, image: ericPic,   likes: ['Monthly country club dues', 'Dinners at 4pm', 'Bocce Ball'], dislikes: ['Hip dips', 'Rap music', 'Cellular phones'] },
+  { name: 'Karl Rohrbaugh',  nickname: 'Life',   handicap: 14, age: 51, image: karlPic,   likes: ['Traveling to new places', 'Afternoon naps', 'High-thread-count sheets', 'Setting phone to DND'], dislikes: ['Tangled cords', 'Bad IKEA instructions', 'Quadruple bogeys on short par 4s'] },
+  { name: 'Troy Thompson',   nickname: 'BM3',    handicap: 7,  age: 47, image: troyPic,   likes: ['BMWs', 'Golf clubs from last century', 'Apples', 'Boobs'], dislikes: ['Dirty automobiles', 'Kids on payroll', 'Digesting food'] },
+  { name: 'Scott Kardell',   nickname: 'Chill',  handicap: 18, age: 56, image: scottPic,  likes: ['The beach', 'Slow jazz music', 'Ice tea', 'Thai massages'], dislikes: ["Eric's face", 'Frowning'] },
 ];
 
 function CrewView() {
@@ -553,7 +599,7 @@ function RulesView() {
       <section className="glass-panel p-8 rounded-3xl">
         <h3 className="text-2xl font-display font-bold mb-8 flex items-center gap-3">
           <Gift className="accent-text" />
-          Prizes & Rewards
+          Cash & Prizes
         </h3>
         <div className="space-y-4">
           {PRIZES.map((prize, idx) => (

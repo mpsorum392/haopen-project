@@ -1,11 +1,13 @@
 import { Player, Match } from './types';
 
 export const RULES = [
+  "Don't be a RICHARD or you will not be invited back on the trip!",
   "Match Play - Each 9 hole match is worth 1 point.",
   "Halved matches result in 0.5 points for each team.",
   "All lost balls to be treated as lateral hazards - No stroke and distance.",
   "May improve lie within 1 foot of ball in same type of rough, sand, other.",
-  "Maximum score on any hole is Net Triple Bogey for pace of play."
+  "Maximum score on any hole is Net Triple Bogey for pace of play.",
+  "All disputes to be settled by the Commish. Let's try not to have any disputes."
 ];
 
 export const PRIZES = [
