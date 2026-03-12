@@ -230,7 +230,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 text-center">
           <div className="glass-panel p-6 rounded-3xl">
             <p className="text-3xl font-display font-bold">2</p>
             <p className="text-[10px] font-mono uppercase opacity-60">Courses</p>
@@ -485,7 +485,7 @@ const CREW: CrewMember[] = [
   { name: 'Kevin DeMarco',   nickname: 'Outs',   handicap: 15, age: 40, image: kevinPic,  likes: ['Any chance to win on river', 'Building amazing simulators for his friends', 'Counting numbers'], dislikes: ['Breaking 90', 'Swinging less than 120%', 'Low limit BJ tables'] },
   { name: 'Derek Bernacchi', nickname: 'Juice',  handicap: 27, age: 38, image: derekPic,  likes: ['Jose Canseco', 'Hitting bombs (with his SW)', 'Direct sunlight'], dislikes: ['None', 'Literally nothing'] },
   { name: 'Jeff Fitzke',     nickname: 'Out of Bounds Right!', handicap: 12, age: 50, image: fitzkePic, likes: ['Raw steak', 'Green golf balls', 'The field of tall grass right of the deep rough'], dislikes: ['Being sober', 'Unchopped wood', 'Unopened wine bottles'] },
-  { name: 'Rob Fabian',      nickname: 'Drunk Dont Care', handicap: 12, age: 44, image: robPic,    likes: ['Bread','Sailor Jerry', 'Banana slices', 'Staircase slides'], dislikes: ['Diabetes','Fun haters', 'Virgin margaritas'] },
+  { name: 'Rob Fabian',      nickname: 'Drunk Dont Care', handicap: 12, age: 44, image: robPic,    likes: ['Breadsticks','Sailor Jerry', 'Banana slices', 'Staircase slides'], dislikes: ['Diabetes','Fun haters', 'Virgin margaritas'] },
   { name: 'Kyle Swart',      nickname: 'Super',  handicap: 4,  age: 40, image: swartPic,  likes: ['Turf care and feeding', 'Playing top 100 courses', 'Radon mitigation systems'], dislikes: ['Losing in anything to anyone', 'Poorly manicured fairways'] },
   { name: 'Eric Wakefield',  nickname: 'Old Man',handicap: 11, age: 57, image: ericPic,   likes: ['Monthly country club dues', 'Dinners at 4pm', 'Bocce Ball'], dislikes: ['Hip dips', 'That "Rap" music', 'Cellular phones'] },
   { name: 'Karl Rohrbaugh',  nickname: 'Life',   handicap: 14, age: 51, image: karlPic,   likes: ['Traveling to new places', 'Afternoon naps', 'High-thread-count sheets', 'Setting phone to DND'], dislikes: ['Tangled cords', 'Bad IKEA instructions', 'Quadruple bogeys on short par 4s'] },
