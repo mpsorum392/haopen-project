@@ -156,9 +156,9 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
               </ul>
               Lodging Costs:
               <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$889-959 for 4 nights across casino and Spirit Hollow</li>
+                  <li>$889-$959 for 4 nights across casino and Spirit Hollow</li>
               </ul>
-              Golf Green Fees:
+              Green Fees:
               <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
                   <li>$95 + replay fee if desired at Blue Top</li>
                   <li>Spirit Hollow included in lodging cost</li>
