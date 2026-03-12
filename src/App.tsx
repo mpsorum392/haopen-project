@@ -101,7 +101,7 @@ export default function App() {
               <span className="opacity-20">/</span>
               <span className="text-pink-400 font-bold">{pinkPoints}</span>
             </div>
-            <span className="text-[8px] font-mono text-white font-bold uppercase tracking-tighter">12.5 to win Cup</span>
+            <span className="text-[8px] font-mono text-white font-bold tracking-tighter">12.5 to win Cup</span>
           </div>
         </div>
 
