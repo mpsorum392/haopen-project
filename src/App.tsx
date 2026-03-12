@@ -590,7 +590,7 @@ function RulesView() {
         <ul className="space-y-8">
           {RULES.map((rule, idx) => (
             <li key={idx} className="flex gap-6 items-start group">
-              <span className="font-mono text-[10px] opacity-20 group-hover:opacity-100 transition-opacity mt-1 font-bold">0{idx + 1}</span>
+              <span className="font-mono text-[15px] opacity-20 group-hover:opacity-100 transition-opacity mt-1 font-bold">0{idx + 1}</span>
               <p className="text-lg leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity">{rule}</p>
             </li>
           ))}
@@ -606,7 +606,7 @@ function RulesView() {
           {PRIZES.map((prize, idx) => (
             <div key={idx} className="p-6 bg-white/5 rounded-2xl border border-white/5 flex justify-between items-center group hover:bg-white hover:text-black transition-all duration-500 cursor-default">
               <div>
-                <p className="text-[10px] font-mono uppercase opacity-40 group-hover:opacity-60 font-bold mb-1">{prize.rank}</p>
+                <p className="text-[15px] font-mono uppercase opacity-40 group-hover:opacity-60 font-bold mb-1">{prize.rank}</p>
                 <p className="font-bold text-xl tracking-tight">{prize.reward}</p>
               </div>
               <ChevronRight className="opacity-20 group-hover:opacity-100 transition-all transform group-hover:translate-x-1" />
