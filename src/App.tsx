@@ -27,6 +27,7 @@ import fitzkePic  from '../images/fitzke-pic.jpeg';
 import karlPic    from '../images/karl-pic.jpeg';
 import troyPic    from '../images/troy-pic.jpeg';
 import robPic     from '../images/rob-pic.jpeg';
+import haOpenLogo from '../images/ha_open_logo.jpg';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('home');
@@ -50,8 +51,8 @@ export default function App() {
       <aside className="md:w-64 md:h-screen md:sticky md:top-0 bg-[#111111] border-r border-white/10 z-50 flex flex-col">
         <div className="p-6 hidden md:block">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 bg-white text-black rounded-xl flex items-center justify-center">
-              <Trophy size={20} />
+            <div className="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
+              <img src={haOpenLogo} alt="HA Open Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <h1 className="text-lg font-display font-bold leading-tight tracking-tight uppercase">H&A Open</h1>
@@ -90,8 +91,8 @@ export default function App() {
         {/* Mobile Header */}
         <div className="md:hidden flex justify-between items-center mb-8">
           <div className="flex items-center gap-2">
-             <div className="w-8 h-8 bg-white text-black rounded-lg flex items-center justify-center">
-              <Trophy size={16} />
+             <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0">
+              <img src={haOpenLogo} alt="HA Open Logo" className="w-full h-full object-cover" />
             </div>
             <h1 className="text-lg font-display font-bold uppercase">H&A Open</h1>
           </div>
