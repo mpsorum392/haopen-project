@@ -38,11 +38,11 @@ export default function App() {
 
   const navItems = [
     { id: 'home',        label: 'Home',        mobileLabel: 'Home',    icon: Home },
-    { id: 'crew',        label: 'The Crew',    mobileLabel: 'Crew',    icon: UserRound },
-    { id: 'rules',       label: 'Rules',       mobileLabel: 'Rules',   icon: ClipboardList },
     { id: 'schedule',    label: 'Schedule',    mobileLabel: 'Sched',   icon: Calendar },
+    { id: 'crew',        label: 'The Crew',    mobileLabel: 'Crew',    icon: UserRound },
     { id: 'matchups',    label: 'Matchups',    mobileLabel: 'Matches', icon: Users },
     { id: 'leaderboard', label: 'Leaderboard', mobileLabel: 'Board',   icon: Trophy },
+    { id: 'rules',       label: 'Rules',       mobileLabel: 'Rules',   icon: ClipboardList },
   ];
 
   return (
@@ -132,21 +132,21 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div className="space-y-8">
         <div className="mb-12">
-          <h2 className="text-4xl font-display font-bold mb-3 tracking-tight">The Hackers & Addicts Open</h2>
+          <h2 className="text-3xl font-display font-bold mb-3 tracking-tight">The H&A Open</h2>
           <p className={"text-emerald-500 font-mono uppercase tracking-widest text-xs"}>June 24th - 28th, 2026</p>
         </div>
 
         <section className="glass-panel p-8 rounded-3xl">
-          <h3 className="text-3xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
+          <h3 className="text-2xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
             Event Overview
           </h3>
-          <p className="text-xl leading-relaxed opacity-60 mb-8">
+          <p className="text-lg leading-relaxed opacity-60 mb-8">
             Welcome to the 7th Annual Hackers & Addicts Open. 12 golfers, 2 teams, 3 days of grueling match play across Iowa's finest courses.
             The Blue Hackers face off against the Pink Addicts in a quest for eternal glory.<br/>
           </p>
         </section>
           <section className="glass-panel p-8 rounded-3xl">
-          <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
+          <h2 className="text-xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
             What's this going to cost you?
           </h2>
           <p className="text-lg leading-relaxed opacity-60 mb-8">
@@ -175,7 +175,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
           </p>
           </section>
           <section className="glass-panel p-8 rounded-3xl">
-          <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
+          <h2 className="text-xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
             Travel Plans
           </h2>
           <p className="text-lg leading-relaxed opacity-60 mb-8">
