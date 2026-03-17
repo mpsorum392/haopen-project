@@ -25,10 +25,10 @@ export const SCHEDULE = [
     image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1200&q=80",
     events: [
       { time: "7:00 AM", activity: "Breakfast & Warmup" },
-      { time: "7:30 AM", activity: "Front 9 Matches" },
+      { time: "7:30/7:40/7:50 AM", activity: "Front 9 Matches" },
       { time: "9:45 AM", activity: "Back 9 Matches" },
       { time: "12:00 PM", activity: "Lunch and Excuses" },
-      { time: "2:00 PM", activity: "Second 18 with games to be decided" }
+      { time: "1:00/1:10/1:20 PM", activity: "Second 18 with games to be decided" }
     ]
   },
   {

@@ -157,11 +157,12 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
               </ul>
               Lodging Costs:
               <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$889-$959 for 4 nights across casino and Spirit Hollow</li>
+                  <li>$175 for stay and play at Riverside - includes 1 round of golf</li>
+                  <li>$826 or $892 for 3 nights at Spirit Hollow w/ unlimited golf</li>
               </ul>
               Green Fees:
               <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$95 + replay fee if desired at Blue Top</li>
+                  <li>$55 is cost of replay at Riverside if you partake</li>
                   <li>Spirit Hollow included in lodging cost</li>
               </ul>
               Travel cost (gas):
@@ -170,7 +171,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
               </ul>
               Total:
               <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$1099+</li>
+                  <li>$1081+</li>
               </ul>
           </p>
           </section>
