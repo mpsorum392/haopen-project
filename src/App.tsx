@@ -28,6 +28,7 @@ import karlPic    from '../images/karl-pic.jpeg';
 import troyPic    from '../images/troy-pic.jpeg';
 import robPic     from '../images/rob-pic.jpeg';
 import haOpenLogo from '../images/ha_open_logo.jpg';
+import spiritHollowPhoto from '../images/spirit_hollow_photo.jpg';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('home');
@@ -38,11 +39,11 @@ export default function App() {
 
   const navItems = [
     { id: 'home',        label: 'Home',        mobileLabel: 'Home',    icon: Home },
-    { id: 'schedule',    label: 'Schedule',    mobileLabel: 'Sched',   icon: Calendar },
+    { id: 'schedule',    label: 'Schedule & Travel',    mobileLabel: 'Sched',   icon: Calendar },
     { id: 'crew',        label: 'The Crew',    mobileLabel: 'Crew',    icon: UserRound },
     { id: 'matchups',    label: 'Matchups',    mobileLabel: 'Matches', icon: Users },
     { id: 'leaderboard', label: 'Leaderboard', mobileLabel: 'Board',   icon: Trophy },
-    { id: 'rules',       label: 'Rules',       mobileLabel: 'Rules',   icon: ClipboardList },
+    { id: 'rules',       label: 'Rules',       mobileLabel: 'Rules-Cash',   icon: ClipboardList },
   ];
 
   return (
@@ -132,8 +133,21 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div className="space-y-8">
         <div className="mb-12">
-          <h2 className="text-3xl font-display font-bold mb-3 tracking-tight">The H&A Open</h2>
+          <h2 className="text-3xl font-display font-bold mb-3 tracking-tight">Hackers & Addicts Open</h2>
           <p className={"text-emerald-500 font-mono uppercase tracking-widest text-xs"}>June 24th - 28th, 2026</p>
+        </div>
+
+        <div className="aspect-video rounded-3xl overflow-hidden border border-white/10 relative group">
+          <img
+            src={spiritHollowPhoto}
+            alt="Spirit Hollow"
+            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+          <div className="absolute bottom-6 left-6">
+            <p className="text-[10px] font-mono uppercase tracking-widest mb-1 opacity-50">Featured Course</p>
+            <h4 className="text-2xl font-display font-bold">Spirit Hollow Golf Club</h4>
+          </div>
         </div>
 
         <section className="glass-panel p-8 rounded-3xl">
@@ -144,62 +158,12 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
             Welcome to the 7th Annual Hackers & Addicts Open. 12 golfers, 2 teams, 3 days of grueling match play across Iowa's finest courses.
             The Blue Hackers face off against the Pink Addicts in a quest for eternal glory.<br/>
           </p>
-        </section>
-          <section className="glass-panel p-8 rounded-3xl">
-          <h2 className="text-xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
-            What's this going to cost you?
-          </h2>
-          <p className="text-lg leading-relaxed opacity-60 mb-8">
-              Entry Fees:
-              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$50 to go towards team competition</li>
-                  <li>$40 to swag for team polos</li>
-              </ul>
-              Lodging Costs:
-              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$175 for stay and play at Riverside - includes 1 round of golf</li>
-                  <li>$826 or $892 for 3 nights at Spirit Hollow w/ unlimited golf</li>
-              </ul>
-              Green Fees:
-              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$55 is cost of replay at Riverside if you partake</li>
-                  <li>Spirit Hollow included in lodging cost</li>
-              </ul>
-              Travel cost (gas):
-              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$25 if not driving</li>
-              </ul>
-              Total:
-              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$1081+</li>
-              </ul>
-          </p>
-          </section>
-          <section className="glass-panel p-8 rounded-3xl">
-          <h2 className="text-xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
-            Travel Plans
-          </h2>
-          <p className="text-lg leading-relaxed opacity-60 mb-8">
-              <b>Wed the 24th - Leaving Home</b>
-             <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-              <li>We will leave Wednesday the 24th no later than 5pm in order to arrive to the Riverside Casino by 930p</li>
-              <li>Shared rooms for the group with stay and play package</li>
-             </ul>
-              <b>Thur the 25th - Riverside Casino</b>
-             <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-              <li>Morning 18 will be our first competition round</li>
-              <li>Afternoon 18 for those who desire or casino time or pool/spa visits</li>
-              <li>Evening drive into Burlington and arrive to Spirit Hollow GC by 9pm (hour drive)</li>
-             </ul>
-              <b>Fri 26th & Sat 27th - Spirit Hollow</b>
-             <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-              <li>36 holes scheduled both days - morning round is competition round and afternoon at your pleasure</li>
-             </ul>
-              <b>Sun the 28th - Heading Home</b>
-             <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-              <li>Have a tee time on the books for early Sunday AM</li>
-                 <li>In years past it is up in the air if anyone plays or we head home</li>
-             </ul>
+            <p className="text-lg leading-relaxed opacity-60 mb-8">
+            This event is about FUN!! Yes, there is a competition that we are playing for $50 across 3 rounds of golf so
+            this is meant to do nothing other than keep us interested.  No one cares how you play but do care that you ARE
+                and HAVE a GOOD TIME on the trip - make that your priority.  If your idea of fun is getting drunk around
+                the guise of a golf trip, great, if you want to play for money and be competitive there will be some others
+                in the group you can find to do it (to a degree).<br/>
           </p>
           </section>
           <div className="grid grid-cols-2 gap-4">
@@ -214,24 +178,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
               <p className="text-xs opacity-40">Burlington, IA</p>
             </div>
           </div>
-
-      </div>
-
-      <div className="space-y-8">
-        <div className="aspect-video rounded-3xl overflow-hidden border border-white/10 relative group">
-          <img
-            src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1200&q=80"
-            alt="Spirit Hollow"
-            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-          <div className="absolute bottom-6 left-6">
-            <p className="text-[10px] font-mono uppercase tracking-widest mb-1 opacity-50">Featured Course</p>
-            <h4 className="text-2xl font-display font-bold">Spirit Hollow</h4>
-          </div>
-        </div>
-
+          <div className="space-y-8">
         <div className="grid grid-cols-4 gap-4 text-center">
           <div className="glass-panel p-6 rounded-3xl">
             <p className="text-3xl font-display font-bold">2</p>
@@ -250,6 +197,42 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
           </div>
         </div>
       </div>
+          <section className="glass-panel p-8 rounded-3xl">
+          <h2 className="text-xl font-display font-bold mb-6 flex items-center gap-2 tracking-tight">
+            What's this going to cost you?
+          </h2>
+          <p className="text-lg leading-relaxed opacity-60 mb-8">
+              Entry Fees:
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>$50 to go towards team competition</li>
+                  <li>$40 to swag for team polos</li>
+              </ul>
+              Lodging Costs:
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>$175 for stay & play at Riverside</li>
+                  <li>$826 or $892 for 3 nights at Spirit Hollow</li>
+              </ul>
+              Green Fees:
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>1 round incl. - $55 is cost of replay</li>
+                  <li>Spirit Hollow unlimited included in lodging cost</li>
+              </ul>
+              Travel cost (gas):
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>$25 if not driving</li>
+              </ul>
+              Total:
+              <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  <li>$1081+ of the best dollars you've ever spent</li>
+              </ul>
+          </p>
+          </section>
+
+
+
+      </div>
+
+
     </div>
   );
 }

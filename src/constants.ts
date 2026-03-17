@@ -19,6 +19,17 @@ export const PRIZES = [
 
 export const SCHEDULE = [
   {
+    day: "Wednesday",
+    date: "24th",
+    location: "Omaha traveling to Riverside, IA",
+    image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1200&q=80",
+    events: [
+      { time: "5:00 PM", activity: "Leave home to head to Riverside" },
+      { time: "9:30 PM", activity: "Arrive to Casino and Check-in" },
+      { time: "10:00 PM to Whenever", activity: "Gamble A$$ES Off" },
+     ]
+  },
+  {
     day: "Thursday",
     date: "25th",
     location: "Blue Top Ridge Golf Course, Riverside, IA",
@@ -56,6 +67,17 @@ export const SCHEDULE = [
       { time: "12:00 PM", activity: "Lunch and Excuses" },
       { time: "2:00 PM", activity: "Second 18 with games to be decided" }
     ]
+  },
+  {
+    day: "Sunday",
+    date: "28th",
+    location: "Burlington traveling to Omaha",
+    image: "https://images.unsplash.com/photo-1595841696677-6489ff3f8cd1?auto=format&fit=crop&w=1200&q=80",
+    events: [
+      { time: "7:00 AM", activity: "Early tee time for the diehards" },
+      { time: "9:00 AM", activity: "Normal people heading home" },
+      { time: "12:00 PM", activity: "Everyone heading home" },
+     ]
   }
 ];
 
