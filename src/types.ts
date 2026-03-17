@@ -2,7 +2,7 @@ export interface Player {
   id: number;
   name: string;
   nickname: string;
-  //team?: 'Blue Hackers' | 'Pink Addicts';
+  team?: 'Blue Hackers' | 'Pink Addicts';
 }
 
 export interface Match {
