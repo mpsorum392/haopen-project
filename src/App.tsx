@@ -133,7 +133,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div className="space-y-8">
         <div className="mb-12">
-          <h2 className="text-3xl font-display font-bold mb-3 tracking-tight">Hackers & Addicts Open</h2>
+          <h2 className="text-2xl font-display font-bold mb-3 tracking-tight">Hackers & Addicts Open</h2>
           <p className={"text-emerald-500 font-mono uppercase tracking-widest text-xs"}>June 24th - 28th, 2026</p>
         </div>
 
@@ -146,7 +146,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           <div className="absolute bottom-6 left-6">
             <p className="text-[10px] font-mono uppercase tracking-widest mb-1 opacity-50">Featured Course</p>
-            <h4 className="text-2xl font-display font-bold">Spirit Hollow Golf Club</h4>
+            <h4 className="text-2xl font-display font-bold">Spirit Hollow (Hole #1)</h4>
           </div>
         </div>
 
