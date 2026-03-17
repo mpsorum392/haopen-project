@@ -223,7 +223,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
               </ul>
               Total:
               <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>$1081+ of the best dollars you've ever spent</li>
+                  <li>$1,116-1,237 of the best $$ you've ever spent</li>
               </ul>
           </p>
           </section>
