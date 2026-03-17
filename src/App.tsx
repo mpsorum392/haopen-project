@@ -422,8 +422,8 @@ function ScheduleView() {
       {SCHEDULE.map((day) => (
         <div key={day.day}>
           <div className="mb-8">
-            <h2 className="text-3xl font-display font-bold tracking-tight">{day.day} the {(day as any).date}</h2>
-            <p className="flex items-center gap-2 text-emerald-500 font-mono uppercase tracking-widest text-xs mt-2">
+            <h2 className="text-[1.3125rem] font-display font-bold tracking-tight">{day.day} the {(day as any).date}</h2>
+            <p className="flex items-center gap-2 text-emerald-500 font-mono uppercase tracking-widest text-[0.525rem] mt-2">
               <MapPin size={12} /> {day.location}
             </p>
           </div>
@@ -441,8 +441,8 @@ function ScheduleView() {
                   </div>
                   {/* Card */}
                   <div className="flex-1 bg-white/5 border border-white/5 rounded-2xl p-5">
-                    <p className="text-emerald-500 font-mono text-sm font-bold mb-2">{event.time}</p>
-                    <p className="text-white font-display font-bold text-xl">{event.activity}</p>
+                    <p className="text-emerald-500 font-mono text-[0.6125rem] font-bold mb-2">{event.time}</p>
+                    <p className="text-white font-display font-bold text-sm">{event.activity}</p>
                   </div>
                 </div>
               ))}
