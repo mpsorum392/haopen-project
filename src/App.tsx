@@ -480,6 +480,7 @@ interface CrewMember {
   nickname: string;
   handicap: number;
   age: number;
+  phone?: string;
   image: string;
   likes: string[];
   dislikes: string[];
@@ -488,19 +489,19 @@ interface CrewMember {
 
 const CREW: CrewMember[] = [
   // Blue Hackers
-  { name: 'Kyle Swart',      nickname: 'Super',                handicap: 4,  age: 40, team: 'Blue Hackers',  image: swartPic,  likes: ['Turf care and feeding', 'Playing top 100 courses', 'Radon mitigation systems'], dislikes: ['Losing in anything to anyone', 'Poorly manicured fairways'] },
-  { name: 'Troy Thompson',   nickname: 'BM3',                  handicap: 9,  age: 47, team: 'Blue Hackers',  image: troyPic,   likes: ['BMWs', 'Golf clubs from last century', 'Apples', 'Boobs'], dislikes: ['Dirty automobiles', 'Kids on payroll', 'Digesting food'] },
-  { name: 'Eric Wakefield',  nickname: 'Old Man',              handicap: 11, age: 57, team: 'Blue Hackers',  image: ericPic,   likes: ['Monthly country club dues', 'Dinners at 4pm', 'Bocce Ball'], dislikes: ['Hip dips', 'That "Rap" music', 'Cellular phones'] },
-  { name: 'Jeff Fitzke',     nickname: 'Out of Bounds Right!', handicap: 12, age: 50, team: 'Blue Hackers',  image: fitzkePic, likes: ['Raw steak', 'Green golf balls', 'The field of tall grass right of the deep rough'], dislikes: ['Being sober', 'Unchopped wood', 'Unopened wine bottles'] },
-  { name: 'Karl Rohrbaugh',  nickname: 'Life',                 handicap: 14, age: 51, team: 'Blue Hackers',  image: karlPic,   likes: ['Traveling to new places', 'Afternoon naps', 'High-thread-count sheets', 'Setting phone to DND'], dislikes: ['Tangled cords', 'Bad IKEA instructions', 'Quadruple bogeys on short par 4s'] },
-  { name: 'Derek Bernacchi', nickname: 'Juice',                handicap: 27, age: 38, team: 'Blue Hackers',  image: derekPic,  likes: ['Jose Canseco', 'Hitting bombs (with his SW)', 'Direct sunlight'], dislikes: ['None', 'Literally nothing'] },
+  { name: 'Kyle Swart',      nickname: 'Super',                handicap: 4,  age: 40, phone: '(318) 245-9150', team: 'Blue Hackers',  image: swartPic,  likes: ['Turf care and feeding', 'Playing top 100 courses', 'Radon mitigation systems'], dislikes: ['Losing in anything to anyone', 'Poorly manicured fairways'] },
+  { name: 'Troy Thompson',   nickname: 'BM3',                  handicap: 9,  age: 47, phone: '(402) 598-4146', team: 'Blue Hackers',  image: troyPic,   likes: ['BMWs', 'Golf clubs from last century', 'Apples', 'Boobs'], dislikes: ['Dirty automobiles', 'Kids on payroll', 'Digesting food'] },
+  { name: 'Eric Wakefield',  nickname: 'Old Man',              handicap: 11, age: 57, phone: '(402) 779-1977', team: 'Blue Hackers',  image: ericPic,   likes: ['Monthly country club dues', 'Dinners at 4pm', 'Bocce Ball'], dislikes: ['Hip dips', 'That "Rap" music', 'Cellular phones'] },
+  { name: 'Jeff Fitzke',     nickname: 'Out of Bounds Right!', handicap: 12, age: 50, phone: '(402) 981-2314', team: 'Blue Hackers',  image: fitzkePic, likes: ['Raw steak', 'Green golf balls', 'The field of tall grass right of the deep rough'], dislikes: ['Being sober', 'Unchopped wood', 'Unopened wine bottles'] },
+  { name: 'Karl Rohrbaugh',  nickname: 'Life',                 handicap: 14, age: 51, phone: '(402) 301-3481', team: 'Blue Hackers',  image: karlPic,   likes: ['Traveling to new places', 'Afternoon naps', 'High-thread-count sheets', 'Setting phone to DND'], dislikes: ['Tangled cords', 'Bad IKEA instructions', 'Quadruple bogeys on short par 4s'] },
+  { name: 'Derek Bernacchi', nickname: 'Juice',                handicap: 27, age: 38, phone: '(402) 870-2128', team: 'Blue Hackers',  image: derekPic,  likes: ['Jose Canseco', 'Hitting bombs (with his SW)', 'Direct sunlight'], dislikes: ['None', 'Literally nothing'] },
   // Pink Addicts
-  { name: 'Mike Sorum',      nickname: 'Commish',              handicap: 7,  age: 45, team: 'Pink Addicts',  image: mikePic,   likes: ['Making plans', 'Bossing people around', 'Buying golf gear', 'Angry tirades under his breath'], dislikes: ['People that do not follow his plans', 'Richards', 'Golf without gambling'] },
-  { name: 'Tbd Tbd',         nickname: 'Hope we find a guy',   handicap: 11, age: 45, team: 'Pink Addicts',  image: paigePic,  likes: ['Being mysterious'], dislikes: ['Committing to golf trips'] },
-  { name: 'Rob Fabian',      nickname: 'Drunk Dont Care',      handicap: 12, age: 44, team: 'Pink Addicts',  image: robPic,    likes: ['Breadsticks','Sailor Jerry', 'Banana slices', 'Staircase slides'], dislikes: ['Diabetes','Fun haters', 'Virgin margaritas'] },
-  { name: 'Kevin DeMarco',   nickname: 'Outs',                 handicap: 15, age: 40, team: 'Pink Addicts',  image: kevinPic,  likes: ['Any chance to win on river', 'Building amazing simulators for his friends', 'Counting numbers'], dislikes: ['Breaking 90', 'Swinging less than 120%', 'Low limit BJ tables'] },
-  { name: 'Kyle Koehler',    nickname: 'Killer',               handicap: 16, age: 45, team: 'Pink Addicts',  image: kyleKPic,  likes: ['High paying contracts', 'Silencers', 'Long-range rifles', 'John Wick movies'], dislikes: ['Losing to Sorum', 'Jammed up firing pins', 'Antonio Banderas'] },
-  { name: 'Scott Kardell',   nickname: 'Chill',                handicap: 18, age: 56, team: 'Pink Addicts',  image: scottPic,  likes: ['The beach', 'Slow jazz music', 'Ice tea', 'Thai massages'], dislikes: ["Eric's face", 'Frowning'] },
+  { name: 'Mike Sorum',      nickname: 'Commish',              handicap: 7,  age: 45, phone: '(402) 616-7933', team: 'Pink Addicts',  image: mikePic,   likes: ['Making plans', 'Bossing people around', 'Buying golf gear', 'Angry tirades under his breath'], dislikes: ['People that do not follow his plans', 'Richards', 'Golf without gambling'] },
+  { name: 'Tbd Tbd',         nickname: 'Hope we find a guy',   handicap: 11, age: 45,                          team: 'Pink Addicts',  image: paigePic,  likes: ['Being mysterious'], dislikes: ['Committing to golf trips'] },
+  { name: 'Rob Fabian',      nickname: 'Drunk Dont Care',      handicap: 12, age: 44, phone: '(402) 980-5611', team: 'Pink Addicts',  image: robPic,    likes: ['Breadsticks','Sailor Jerry', 'Banana slices', 'Staircase slides'], dislikes: ['Diabetes','Fun haters', 'Virgin margaritas'] },
+  { name: 'Kevin DeMarco',   nickname: 'Outs',                 handicap: 15, age: 40, phone: '(630) 335-6050', team: 'Pink Addicts',  image: kevinPic,  likes: ['Any chance to win on river', 'Building amazing simulators for his friends', 'Counting numbers'], dislikes: ['Breaking 90', 'Swinging less than 120%', 'Low limit BJ tables'] },
+  { name: 'Kyle Koehler',    nickname: 'Killer',               handicap: 16, age: 45, phone: '(402) 540-1990', team: 'Pink Addicts',  image: kyleKPic,  likes: ['High paying contracts', 'Silencers', 'Long-range rifles', 'John Wick movies'], dislikes: ['Losing to Sorum', 'Jammed up firing pins', 'Antonio Banderas'] },
+  { name: 'Scott Kardell',   nickname: 'Chill',                handicap: 18, age: 56, phone: '(402) 981-7211', team: 'Pink Addicts',  image: scottPic,  likes: ['The beach', 'Slow jazz music', 'Ice tea', 'Thai massages'], dislikes: ["Eric's face", 'Frowning'] },
 ];
 
 function CrewView() {
@@ -568,6 +569,9 @@ function PlayerCard({ player }: { player: CrewMember }) {
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <h3 className="text-2xl font-display font-bold leading-tight">{player.name}</h3>
           <p className="text-base font-mono text-white mt-1">Nickname: {player.nickname}</p>
+          {player.phone && (
+            <p className="text-xs font-mono text-white/50 mt-1">{player.phone}</p>
+          )}
         </div>
       </div>
 
