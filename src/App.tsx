@@ -70,13 +70,13 @@ export default function App() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as TabType)}
-              className={`flex flex-col md:flex-row items-center gap-1 md:gap-3 px-4 py-3 md:py-4 text-[10px] md:text-sm font-medium transition-all rounded-xl relative ${
+              className={`flex flex-col md:flex-row items-center gap-0.5 md:gap-3 px-2 py-2 md:py-4 text-[8px] md:text-sm font-medium transition-all rounded-xl relative ${
                 activeTab === tab.id
                   ? 'text-emerald-500 bg-white/10'
                   : 'text-white/40 hover:text-emerald-500/70 hover:bg-white/5'
               }`}
             >
-              <tab.icon size={18} />
+              <tab.icon className="md:hidden" size={14} /><tab.icon className="hidden md:block" size={18} />
               <span className="hidden md:inline">{tab.label}</span>
               <span className="md:hidden">{tab.mobileLabel}</span>
               {activeTab === tab.id && (
