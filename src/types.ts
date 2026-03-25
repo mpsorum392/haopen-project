@@ -17,4 +17,19 @@ export interface Match {
   winner: string | null;
 }
 
-export type TabType = 'home' | 'crew' | 'leaderboard' | 'matchups' | 'schedule' | 'rules';
+export type TabType = 'home' | 'crew' | 'leaderboard' | 'matchups' | 'schedule' | 'rules' | 'archive';
+
+export interface ArchiveTeam {
+  name: string;
+  players: string[];
+  score: number;
+}
+
+export interface ArchiveYear {
+  year: number;
+  location: string;
+  courses: string[];
+  winningTeam: string;
+  teams: ArchiveTeam[];
+  notes: string;
+}

@@ -13,9 +13,10 @@ import {
   UserRound,
   ThumbsUp,
   ThumbsDown,
+  BookOpen,
 } from 'lucide-react';
 import { TabType, Match } from './types';
-import { RULES, PRIZES, SCHEDULE, INITIAL_MATCHES } from './constants';
+import { RULES, PRIZES, SCHEDULE, INITIAL_MATCHES, ARCHIVE_DATA } from './constants';
 import mikePic    from '../images/mike-pic.jpeg';
 import swartPic   from '../images/swart-pic.jpeg';
 import kyleKPic   from '../images/kyleK-pic.jpg';
@@ -45,6 +46,7 @@ export default function App() {
     { id: 'matchups',    label: 'Matchups',    mobileLabel: 'Matches', icon: Users },
     { id: 'leaderboard', label: 'Leaderboard', mobileLabel: 'Board',   icon: Trophy },
     { id: 'rules',       label: 'Rules',       mobileLabel: 'Rules-Cash',   icon: ClipboardList },
+    { id: 'archive',     label: 'Archive',     mobileLabel: 'Archive',      icon: BookOpen },
   ];
 
   return (
@@ -122,6 +124,7 @@ export default function App() {
             {activeTab === 'matchups' && <MatchupsView matches={matches} handicapMap={Object.fromEntries(CREW.map(p => [p.name.split(' ').pop()!, p.handicap]))} />}
             {activeTab === 'schedule' && <ScheduleView />}
             {activeTab === 'rules' && <RulesView />}
+            {activeTab === 'archive' && <ArchiveView />}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -662,6 +665,105 @@ function RulesView() {
             </div>
           ))}
         </div>
+      </section>
+    </div>
+  );
+}
+
+function ArchiveView() {
+  const [selectedYear, setSelectedYear] = useState<number>(ARCHIVE_DATA[0].year);
+  const entry = ARCHIVE_DATA.find(d => d.year === selectedYear)!;
+
+  return (
+    <div className="space-y-8">
+      <div className="mb-4">
+        <h2 className="text-2xl font-display font-bold mb-2 tracking-tight flex items-center gap-3">
+          <BookOpen className="accent-text" />
+          H&amp;A Open Archive
+        </h2>
+        <p className="text-xs font-mono uppercase tracking-widest opacity-40">2020 – 2025 · Event History</p>
+      </div>
+
+      {/* Year Selector */}
+      <div className="flex flex-wrap gap-3">
+        {ARCHIVE_DATA.map(d => (
+          <button
+            key={d.year}
+            onClick={() => setSelectedYear(d.year)}
+            className={`px-5 py-2 rounded-xl text-sm font-mono font-bold transition-all border ${
+              selectedYear === d.year
+                ? 'bg-emerald-500 text-black border-emerald-500'
+                : 'border-white/10 text-white/40 hover:text-emerald-500 hover:border-emerald-500/40'
+            }`}
+          >
+            {d.year}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Location & Courses */}
+        <section className="glass-panel p-8 rounded-3xl space-y-6">
+          <div>
+            <p className="text-[10px] font-mono uppercase tracking-widest opacity-40 mb-1">Main Location</p>
+            <p className="text-2xl font-display font-bold flex items-center gap-2">
+              <MapPin size={18} className="text-emerald-500 flex-shrink-0" />
+              {entry.location}
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] font-mono uppercase tracking-widest opacity-40 mb-3">Courses Played</p>
+            <ul className="space-y-2">
+              {entry.courses.map((course, i) => (
+                <li key={i} className="flex items-center gap-2 text-sm opacity-80">
+                  <span className="font-mono text-emerald-500 opacity-60">0{i + 1}</span>
+                  {course}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-[10px] font-mono uppercase tracking-widest opacity-40 mb-2">Winner</p>
+            <p className="text-xl font-bold text-emerald-400 flex items-center gap-2">
+              <Trophy size={18} />
+              {entry.winningTeam}
+            </p>
+          </div>
+        </section>
+
+        {/* Teams & Scores */}
+        <section className="glass-panel p-8 rounded-3xl space-y-6">
+          <p className="text-[10px] font-mono uppercase tracking-widest opacity-40">Teams &amp; Final Score</p>
+          {entry.teams.map((team, idx) => (
+            <div key={team.name} className="p-5 rounded-2xl bg-white/5 border border-white/5 space-y-3">
+              <div className="flex justify-between items-center">
+                <p className={`font-bold text-lg ${team.name.toLowerCase().includes('black') ? 'text-white' : idx === 0 ? 'text-blue-400' : 'text-pink-400'}`}>
+                  {team.name}
+                </p>
+                <span className={`text-3xl font-display font-bold ${team.name.toLowerCase().includes('black') ? 'text-white' : idx === 0 ? 'text-blue-400' : 'text-pink-400'}`}>
+                  {(entry.year === 2022 || entry.year === 2023)
+                    ? (entry.winningTeam === team.name ? '1UP' : '')
+                    : entry.year === 2020
+                    ? ''
+                    : team.score}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {team.players.map(player => (
+                  <span key={player} className="text-[11px] font-mono px-2 py-1 rounded-lg bg-white/5 border border-white/5 opacity-70">
+                    {player}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      </div>
+
+      {/* Special Notes */}
+      <section className="glass-panel p-8 rounded-3xl">
+        <p className="text-[10px] font-mono uppercase tracking-widest opacity-40 mb-4">Special Notes</p>
+        <p className="text-base leading-relaxed opacity-70">{entry.notes}</p>
       </section>
     </div>
   );

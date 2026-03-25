@@ -1,4 +1,71 @@
-import { Player, Match } from './types';
+import { Player, Match, ArchiveYear } from './types';
+
+export const ARCHIVE_DATA: ArchiveYear[] = [
+  {
+    year: 2025,
+    location: "Manhattan, KS",
+    courses: ["Colbert Hills", "FireKeeper"],
+    winningTeam: "Team Blue",
+    teams: [
+      { name: "Team Blue", players: ["Kyle Swart", "Jeff Fitzke", "Rob Fabian", "Derek Bernacchi"], score: 12 },
+      { name: "Team Black", players: ["Mike Sorum", "Ben", "Kevin DeMarco", "Kyle Koehler"], score: 10 },
+    ],
+    notes: "Will forever be known as 'Hell'; 95+ degree temps and 40+ mph winds; fuck Kansas.",
+  },
+  {
+    year: 2024,
+    location: "Sioux Falls, SD",
+    courses: ["Whispering Ridge", "Who The Hell Knows"],
+    winningTeam: "Team Black",
+    teams: [
+      { name: "Team Blue", players: ["Kyle Swart", "Kyle Koehler", "Kevin DeMarco", "Rob Fabian"], score: 10.5 },
+      { name: "Team Black", players: ["Mike Sorum", "Morgan Blaney", "Jeff Fitzke", "Derek Bernacchi"], score: 11.5 },
+    ],
+    notes: "The Great Flood of Sioux Falls 2024. Never played a hole.",
+  },
+  {
+    year: 2023,
+    location: "Sioux Falls, SD",
+    courses: ["The Falls", "Prairie Green"],
+    winningTeam: "Team Black",
+    teams: [
+      { name: "Team Blue", players: ["Mike Sorum", "Morgan Blaney", "Kam Rokon"], score: 0 },
+      { name: "Team Black", players: ["Kevin DeMarco", "Kyle Koehler", "Derek Bernacchi"], score: 0 },
+    ],
+    notes: "Team Black won 1UP. Our smallest trip but a lot of golf and gambling.",
+  },
+  {
+    year: 2022,
+    location: "Riverside, IA",
+    courses: ["Blue Top Ridge"],
+    winningTeam: "Team Blue",
+    teams: [
+      { name: "Team Blue", players: ["Mike Sorum", "Kyle Koehler", "Morgan Blaney", "Derek Bernacchi"], score: 0 },
+      { name: "Team Black", players: ["Tim O'Neil", "Kevin DeMarco", "Bob Wein", "Orlando Vera"], score: 0 },
+    ],
+    notes: "Team Blue won 1UP. A small group of 3 took on the tips at Blue Top Ridge and managed a 70 from 7600 yards.",
+  },
+  {
+    year: 2021,
+    location: "Kansas City, MO",
+    courses: ["Shoal Creek", "Tiffany Greens", "Stone Canyon"],
+    winningTeam: "None",
+    teams: [
+      { name: "All Players", players: ["Mike Sorum", "Kyle Koehler", "Morgan Blaney", "Kevin DeMarco", "Bob Wein", "Josh Macke", "Rick Loftin", "Orlando Vera"], score: 0 },
+    ],
+    notes: "No team competition. 95+ degree temps and 40+ mph winds; fuck Kansas.",
+  },
+  {
+    year: 2020,
+    location: "Kansas City, MO",
+    courses: ["Tiffany Greens", "Drumm Farm", "Winterstone"],
+    winningTeam: "None",
+    teams: [
+      { name: "All Players", players: ["Mike Sorum", "Kyle Koehler", "Morgan Blaney", "Kevin DeMarco", "Bob Wein", "Josh Macke", "Rick Loftin", "Tim O'Neil"], score: 0 },
+    ],
+    notes: "The inaugural H&A Open. The motherfuckers at Tiffany Greens tried to kill us with no water or cart girl on course, and the 9th hole does not go back to the clubhouse.",
+  },
+];
 
 export const RULES = [
   "Don't be a RICHARD or you will not be invited back on the trip!",
