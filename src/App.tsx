@@ -20,13 +20,13 @@ import { RULES, PRIZES, SCHEDULE, INITIAL_MATCHES, ARCHIVE_DATA } from './consta
 import mikePic    from '../images/mike-pic.jpeg';
 import swartPic   from '../images/swart-pic.jpeg';
 import kyleKPic   from '../images/kyleK-pic.jpg';
-import kevinPic   from '../images/kevin-pic.jpeg';
+import kevinPic   from '../images/kevin-new-pic.jpeg';
 import ericPic    from '../images/eric-pic.jpg';
 import scottPic   from '../images/scott-pic.jpg';
 import derekPic   from '../images/derek-pic.jpeg';
 import fitzkePic  from '../images/fitzke-pic.jpeg';
 import karlPic    from '../images/karl-pic.jpeg';
-import troyPic    from '../images/troy-pic.jpeg';
+import troyPic    from '../images/troy-new-pic.jpeg';
 import robPic     from '../images/rob-pic.jpeg';
 import haOpenLogo from '../images/ha_open_logo.jpg';
 import paigePic   from '../images/paige-pic.jpg';
@@ -106,7 +106,7 @@ export default function App() {
               <span className="opacity-20">/</span>
               <span className="text-pink-400 font-bold">{pinkPoints}</span>
             </div>
-            <span className="text-[8px] font-mono text-white font-bold tracking-tighter">12.5 to win Cup</span>
+            <span className="text-[8px] font-mono text-white font-bold tracking-tighter">11.5 to win Cup</span>
           </div>
         </div>
 
@@ -196,7 +196,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
             <p className="text-[10px] font-mono uppercase opacity-60">Holes</p>
           </div>
           <div className="glass-panel p-6 rounded-3xl">
-            <p className="text-3xl font-display font-bold">24</p>
+            <p className="text-3xl font-display font-bold">22</p>
             <p className="text-[10px] font-mono uppercase opacity-60">Total Matches</p>
           </div>
         </div>
@@ -320,15 +320,16 @@ function MatchupsView({ matches, handicapMap }: { matches: Match[], handicapMap:
   const front9Matches = matches.filter(m => m.day === selectedDay && m.session === 'Front 9');
   const back9Matches = matches.filter(m => m.day === selectedDay && m.session === 'Back 9');
 
-  const totalHcp = (players: string[]) => {
-    if (players.length < 2) return players.reduce((s, p) => s + (handicapMap[p] ?? 0), 0);
+  const totalHcp = (players: string[], matchType: string) => {
+    if (matchType === '1v1') return Math.round((handicapMap[players[0]] ?? 0) * 0.5);
     const hcps = players.map(p => handicapMap[p] ?? 0).sort((a, b) => a - b);
-    return Math.round((hcps[0] * 0.35 + hcps[1] * 0.15) / 2 * 10) / 10;
+    return Math.round((hcps[0] * 0.35 + hcps[1] * 0.15) / 2);
   };
 
   const renderMatch = (match: Match) => {
-    const blueHcp = totalHcp(match.team_blue_players);
-    const pinkHcp = totalHcp(match.team_pink_players);
+    const blueHcp = totalHcp(match.team_blue_players, match.match_type);
+    const pinkHcp = totalHcp(match.team_pink_players, match.match_type);
+    const hcpLabel = match.match_type === '1v1' ? 'Player HCP(9H)' : 'Team HCP(9H)';
     return (
       <div key={match.id} className="glass-panel rounded-2xl overflow-hidden flex flex-col md:flex-row group hover:border-white/20 transition-all">
         <div className="p-5 flex-1 border-b md:border-b-0 md:border-r border-white/10">
@@ -346,7 +347,7 @@ function MatchupsView({ matches, handicapMap }: { matches: Match[], handicapMap:
                 </p>
               ))}
               {match.team_blue_players.length > 0 && (
-                <p className="text-sm font-mono text-blue-400/60 pt-1">Team HCP(9H): {blueHcp}</p>
+                <p className="text-sm font-mono text-blue-400/60 pt-1">{hcpLabel}: {blueHcp}</p>
               )}
             </div>
 
@@ -360,7 +361,7 @@ function MatchupsView({ matches, handicapMap }: { matches: Match[], handicapMap:
                 </p>
               ))}
               {match.team_pink_players.length > 0 && (
-                <p className="text-sm font-mono text-pink-400/60 pt-1">Team HCP(9H): {pinkHcp}</p>
+                <p className="text-sm font-mono text-pink-400/60 pt-1">{hcpLabel}: {pinkHcp}</p>
               )}
             </div>
           </div>
@@ -497,14 +498,12 @@ const CREW: CrewMember[] = [
   { name: 'Eric Wakefield',  nickname: 'Old Man',              handicap: 11, age: 57, phone: '(402) 779-1977', team: 'Blue Hackers',  image: ericPic,   likes: ['Monthly country club dues', 'Dinners at 4pm', 'Bocce Ball'], dislikes: ['Hip dips', 'That "Rap" music', 'Cellular phones'] },
   { name: 'Jeff Fitzke',     nickname: 'Out of Bounds Right!', handicap: 12, age: 50, phone: '(402) 981-2314', team: 'Blue Hackers',  image: fitzkePic, likes: ['Raw steak', 'Green golf balls', 'The field of tall grass right of the deep rough'], dislikes: ['Being sober', 'Unchopped wood', 'Unopened wine bottles'] },
   { name: 'Karl Rohrbaugh',  nickname: 'Life',                 handicap: 14, age: 51, phone: '(402) 301-3481', team: 'Blue Hackers',  image: karlPic,   likes: ['Traveling to new places', 'Afternoon naps', 'High-thread-count sheets', 'Setting phone to DND'], dislikes: ['Tangled cords', 'Bad IKEA instructions', 'Quadruple bogeys on short par 4s'] },
-  { name: 'Derek Bernacchi', nickname: 'Juice',                handicap: 27, age: 38, phone: '(402) 870-2128', team: 'Blue Hackers',  image: derekPic,  likes: ['Jose Canseco', 'Hitting bombs (with his SW)', 'Direct sunlight'], dislikes: ['None', 'Literally nothing'] },
   // Pink Addicts
   { name: 'Mike Sorum',      nickname: 'Commish',              handicap: 7,  age: 45, phone: '(402) 616-7933', team: 'Pink Addicts',  image: mikePic,   likes: ['Making plans', 'Bossing people around', 'Buying golf gear', 'Angry tirades under his breath'], dislikes: ['People that do not follow his plans', 'Richards', 'Golf without gambling'] },
-  { name: 'Tbd Tbd',         nickname: 'Hope we find a guy',   handicap: 11, age: 45,                          team: 'Pink Addicts',  image: paigePic,  likes: ['Being mysterious'], dislikes: ['Committing to golf trips'] },
   { name: 'Rob Fabian',      nickname: 'Drunk Dont Care',      handicap: 12, age: 44, phone: '(402) 980-5611', team: 'Pink Addicts',  image: robPic,    likes: ['Breadsticks','Sailor Jerry', 'Banana slices', 'Staircase slides'], dislikes: ['Diabetes','Fun haters', 'Virgin margaritas'] },
-  { name: 'Kevin DeMarco',   nickname: 'Outs',                 handicap: 15, age: 40, phone: '(630) 335-6050', team: 'Pink Addicts',  image: kevinPic,  likes: ['Any chance to win on river', 'Building amazing simulators for his friends', 'Counting numbers'], dislikes: ['Breaking 90', 'Swinging less than 120%', 'Low limit BJ tables'] },
-  { name: 'Kyle Koehler',    nickname: 'Killer',               handicap: 16, age: 45, phone: '(402) 540-1990', team: 'Pink Addicts',  image: kyleKPic,  likes: ['High paying contracts', 'Silencers', 'Long-range rifles', 'John Wick movies'], dislikes: ['Losing to Sorum', 'Jammed up firing pins', 'Antonio Banderas'] },
-  { name: 'Scott Kardell',   nickname: 'Chill',                handicap: 18, age: 56, phone: '(402) 981-7211', team: 'Pink Addicts',  image: scottPic,  likes: ['The beach', 'Slow jazz music', 'Ice tea', 'Thai massages'], dislikes: ["Eric's face", 'Frowning'] },
+  { name: 'Kevin DeMarco',   nickname: 'Outs',                 handicap: 16, age: 40, phone: '(630) 335-6050', team: 'Pink Addicts',  image: kevinPic,  likes: ['Any chance to win on river', 'Building amazing simulators for his friends', 'Counting numbers'], dislikes: ['Breaking 90', 'Swinging less than 120%', 'Low limit BJ tables'] },
+  { name: 'Kyle Koehler',    nickname: 'Killer',               handicap: 18, age: 45, phone: '(402) 540-1990', team: 'Pink Addicts',  image: kyleKPic,  likes: ['High paying contracts', 'Silencers', 'Long-range rifles', 'John Wick movies'], dislikes: ['Losing to Sorum', 'Jammed up firing pins', 'Antonio Banderas'] },
+  { name: 'Scott Kardell',   nickname: 'Chill',                handicap: 20, age: 56, phone: '(402) 981-7211', team: 'Pink Addicts',  image: scottPic,  likes: ['The beach', 'Slow jazz music', 'Ice tea', 'Thai massages'], dislikes: ["Eric's face", 'Frowning'] },
 ];
 
 function CrewView() {
@@ -524,7 +523,7 @@ function CrewView() {
           <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
           <h3 className="text-xl font-display font-bold text-blue-400 tracking-tight">Blue Hackers</h3>
           <div className="h-px flex-1 bg-blue-500/20" />
-          <span className="text-[10px] font-mono text-blue-400/60 uppercase tracking-widest">HCP {blueTeam.reduce((s, p) => s + p.handicap, 0)}</span>
+          <span className="text-xl font-mono text-blue-400/60 uppercase tracking-widest">HCP {blueTeam.reduce((s, p) => s + p.handicap, 0)}</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blueTeam.map(player => (
@@ -539,7 +538,7 @@ function CrewView() {
           <div className="w-3 h-3 rounded-full bg-pink-500 shadow-[0_0_8px_rgba(236,72,153,0.6)]" />
           <h3 className="text-xl font-display font-bold text-pink-400 tracking-tight">Pink Addicts</h3>
           <div className="h-px flex-1 bg-pink-500/20" />
-          <span className="text-[10px] font-mono text-pink-400/60 uppercase tracking-widest">HCP {pinkTeam.reduce((s, p) => s + p.handicap, 0)}</span>
+          <span className="text-xl font-mono text-pink-400/60 uppercase tracking-widest">HCP {pinkTeam.reduce((s, p) => s + p.handicap, 0)}</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pinkTeam.map(player => (

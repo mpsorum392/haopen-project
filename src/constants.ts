@@ -78,7 +78,7 @@ export const RULES = [
 ];
 
 export const PRIZES = [
-  { rank: "Winning Team", reward: "$300 Team Purse + The H&A Cup" },
+  { rank: "Winning Team", reward: "500 Team Purse + The H&A Cup" },
   { rank: "MVP", reward: "Special Reveal for 2026" },
   { rank: "TBD1", reward: "TBD" },
   { rank: "TBD2", reward: "TBD" }
@@ -152,46 +152,42 @@ export const INITIAL_PLAYERS: Player[] = [
   { id: 1,  name: 'Mike',      nickname: 'Commish', team: 'Pink Addicts'  },
   { id: 2,  name: 'Kyle K',    nickname: 'Killer',  team: 'Pink Addicts'  },
   { id: 3,  name: 'Kevin',     nickname: 'Outs',    team: 'Pink Addicts'  },
-  { id: 4,  name: 'Derek',     nickname: 'Juice',   team: 'Blue Hackers'  },
-  { id: 5,  name: 'Jeff',      nickname: 'OoBR',    team: 'Blue Hackers'  },
-  { id: 6,  name: 'Rob',       nickname: 'DcD',     team: 'Pink Addicts'  },
-  { id: 7,  name: 'Kyle S',    nickname: 'Super',   team: 'Blue Hackers'  },
-  { id: 8,  name: 'Eric',      nickname: 'Old Man', team: 'Blue Hackers'  },
-  { id: 9,  name: 'Karl',      nickname: 'Life',    team: 'Blue Hackers'  },
-  { id: 10, name: 'Troy',      nickname: 'BM3',     team: 'Blue Hackers'  },
-  { id: 11, name: 'Scott',     nickname: 'Chill',   team: 'Pink Addicts'  },
-  { id: 12, name: 'Tbd',       nickname: 'TBD',     team: 'Pink Addicts'  },
+  { id: 4,  name: 'Jeff',      nickname: 'OoBR',    team: 'Blue Hackers'  },
+  { id: 5,  name: 'Rob',       nickname: 'DcD',     team: 'Pink Addicts'  },
+  { id: 6,  name: 'Kyle S',    nickname: 'Super',   team: 'Blue Hackers'  },
+  { id: 7,  name: 'Eric',      nickname: 'Old Man', team: 'Blue Hackers'  },
+  { id: 8,  name: 'Karl',      nickname: 'Life',    team: 'Blue Hackers'  },
+  { id: 9,  name: 'Troy',      nickname: 'BM3',     team: 'Blue Hackers'  },
+  { id: 10, name: 'Scott',     nickname: 'Chill',   team: 'Pink Addicts'  },
 ];
 
 export const INITIAL_MATCHES: Match[] = [
-  // Thursday — Front 9 (3x 2v2)
-  { id: 1,  day: 'Thursday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Swart', 'Bernacchi'],    team_pink_players: ['Tbd', 'Koehler'],      blue_score: 0, pink_score: 0, winner: null },
-  { id: 2,  day: 'Thursday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Thompson', 'Rohrbaugh'], team_pink_players: ['Sorum', 'Kardell'],    blue_score: 0, pink_score: 0, winner: null },
-  { id: 3,  day: 'Thursday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Wakefield', 'Fitzke'],   team_pink_players: ['Fabian', 'DeMarco'],   blue_score: 0, pink_score: 0, winner: null },
-  // Thursday — Back 9 (3x 2v2)
-  { id: 4,  day: 'Thursday', session: 'Back 9',  match_type: '2v2', team_blue_players: ['Swart', 'Rohrbaugh'],    team_pink_players: ['Fabian', 'Koehler'],   blue_score: 0, pink_score: 0, winner: null },
-  { id: 5,  day: 'Thursday', session: 'Back 9',  match_type: '2v2', team_blue_players: ['Thompson', 'Fitzke'],    team_pink_players: ['Sorum', 'DeMarco'],    blue_score: 0, pink_score: 0, winner: null },
-  { id: 6,  day: 'Thursday', session: 'Back 9',  match_type: '2v2', team_blue_players: ['Wakefield', 'Bernacchi'], team_pink_players: ['Tbd', 'Kardell'],     blue_score: 0, pink_score: 0, winner: null },
-  // Friday — Front 9 (3x 2v2)
-  { id: 7,  day: 'Friday',   session: 'Front 9', match_type: '2v2', team_blue_players: ['Swart', 'Thompson'],     team_pink_players: ['Sorum', 'Tbd'],        blue_score: 0, pink_score: 0, winner: null },
-  { id: 8,  day: 'Friday',   session: 'Front 9', match_type: '2v2', team_blue_players: ['Wakefield', 'Rohrbaugh'], team_pink_players: ['Fabian', 'Kardell'],  blue_score: 0, pink_score: 0, winner: null },
-  { id: 9,  day: 'Friday',   session: 'Front 9', match_type: '2v2', team_blue_players: ['Fitzke', 'Bernacchi'],   team_pink_players: ['DeMarco', 'Koehler'],  blue_score: 0, pink_score: 0, winner: null },
-  // Friday — Back 9 (6x 1v1)
+  // Thursday — Front 9 (2x 2v2, 1x 1v1) — Blue solo: Rohrbaugh | Pink solo: Kardell
+  { id: 1,  day: 'Thursday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Swart', 'Thompson'],     team_pink_players: ['Sorum', 'Kardell'],   blue_score: 0, pink_score: 0, winner: null },
+  { id: 2,  day: 'Thursday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Wakefield', 'Rohrbaugh'], team_pink_players: ['DeMarco', 'Koehler'], blue_score: 0, pink_score: 0, winner: null },
+  { id: 3,  day: 'Thursday', session: 'Front 9', match_type: '1v1', team_blue_players: ['Fitzke'], team_pink_players: ['Fabian'], blue_score: 0, pink_score: 0, winner: null },
+  // Thursday — Back 9 (2x 2v2, 1x 1v1) — Blue solo: Swart | Pink solo: DeMarco
+  { id: 4,  day: 'Thursday', session: 'Back 9',  match_type: '2v2', team_blue_players: ['Thompson', 'Wakefield'],  team_pink_players: ['Sorum', 'Koehler'],   blue_score: 0, pink_score: 0, winner: null },
+  { id: 5,  day: 'Thursday', session: 'Back 9',  match_type: '2v2', team_blue_players: ['Fitzke', 'Rohrbaugh'],    team_pink_players: ['Fabian', 'Kardell'],  blue_score: 0, pink_score: 0, winner: null },
+  { id: 6,  day: 'Thursday', session: 'Back 9',  match_type: '1v1', team_blue_players: ['Swart'], team_pink_players: ['DeMarco'], blue_score: 0, pink_score: 0, winner: null },
+  // Friday — Front 9 (2x 2v2, 1x 1v1) — Blue solo: Thompson | Pink solo: Sorum
+  { id: 7,  day: 'Friday',   session: 'Front 9', match_type: '2v2', team_blue_players: ['Thompson', 'Fitzke'],     team_pink_players: ['Fabian', 'DeMarco'],  blue_score: 0, pink_score: 0, winner: null },
+  { id: 8,  day: 'Friday',   session: 'Front 9', match_type: '2v2', team_blue_players: ['Wakefield', 'Rohrbaugh'], team_pink_players: ['Koehler', 'Kardell'], blue_score: 0, pink_score: 0, winner: null },
+  { id: 9,  day: 'Friday',   session: 'Front 9', match_type: '1v1', team_blue_players: ['Swart'], team_pink_players: ['Sorum'], blue_score: 0, pink_score: 0, winner: null },
+  // Friday — Back 9 (5x 1v1)
   { id: 10, day: 'Friday',   session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 11, day: 'Friday',   session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 12, day: 'Friday',   session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 13, day: 'Friday',   session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 14, day: 'Friday',   session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
-  { id: 15, day: 'Friday',   session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
-  // Saturday — Front 9 (3x 2v2)
-  { id: 16, day: 'Saturday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Swart', 'Wakefield'],    team_pink_players: ['Sorum', 'Fabian'],     blue_score: 0, pink_score: 0, winner: null },
-  { id: 17, day: 'Saturday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Thompson', 'Bernacchi'], team_pink_players: ['Koehler', 'Kardell'],  blue_score: 0, pink_score: 0, winner: null },
-  { id: 18, day: 'Saturday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Fitzke', 'Rohrbaugh'],   team_pink_players: ['Tbd', 'DeMarco'],      blue_score: 0, pink_score: 0, winner: null },
-  // Saturday — Back 9 (6x 1v1)
+  // Saturday — Front 9 (2x 2v2, 1x 1v1) — Blue solo: Fitzke | Pink solo: Kardell
+  { id: 15, day: 'Saturday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Swart', 'Wakefield'],   team_pink_players: ['Sorum', 'DeMarco'],   blue_score: 0, pink_score: 0, winner: null },
+  { id: 16, day: 'Saturday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Thompson', 'Rohrbaugh'], team_pink_players: ['Fabian', 'Koehler'],  blue_score: 0, pink_score: 0, winner: null },
+  { id: 17, day: 'Saturday', session: 'Front 9', match_type: '1v1', team_blue_players: ['Fitzke'], team_pink_players: ['Kardell'], blue_score: 0, pink_score: 0, winner: null },
+  // Saturday — Back 9 (5x 1v1)
+  { id: 18, day: 'Saturday', session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 19, day: 'Saturday', session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 20, day: 'Saturday', session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 21, day: 'Saturday', session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 22, day: 'Saturday', session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
-  { id: 23, day: 'Saturday', session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
-  { id: 24, day: 'Saturday', session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
 ];
