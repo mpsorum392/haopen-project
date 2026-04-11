@@ -218,8 +218,8 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
               </ul>
               Green Fees:
               <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  <li>1 round incl. - $55 is cost of replay</li>
-                  <li>Spirit Hollow unlimited included in lodging cost</li>
+                  <li>Riverside: 1 round incl. - $55 is cost of replay</li>
+                  <li>Spirit Hollow: unlimited included in lodging cost</li>
               </ul>
               Travel cost (gas):
               <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
