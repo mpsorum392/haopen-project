@@ -36,8 +36,8 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const matches = INITIAL_MATCHES;
 
-  const bluePoints = matches.reduce((acc: number, m: Match) => acc + m.blue_score, 0);
-  const pinkPoints = matches.reduce((acc: number, m: Match) => acc + m.pink_score, 0);
+  const bluePoints = matches.reduce((acc: number, m: Match) => acc + m.blue_score * (m.match_type === '2v2' ? 2 : 1), 0);
+  const pinkPoints = matches.reduce((acc: number, m: Match) => acc + m.pink_score * (m.match_type === '2v2' ? 2 : 1), 0);
 
   const navItems = [
     { id: 'home',        label: 'Home',        mobileLabel: 'Home',    icon: Home },
@@ -106,7 +106,7 @@ export default function App() {
               <span className="opacity-20">/</span>
               <span className="text-pink-400 font-bold">{pinkPoints}</span>
             </div>
-            <span className="text-[8px] font-mono text-white font-bold tracking-tighter">11.5 to win Cup</span>
+            <span className="text-[8px] font-mono text-white font-bold tracking-tighter">15.5 to win Cup</span>
           </div>
         </div>
 
@@ -159,7 +159,7 @@ function HomeView({ bluePoints, pinkPoints }: { bluePoints: number, pinkPoints: 
             Event Overview
           </h3>
           <p className="text-lg leading-relaxed opacity-60 mb-8">
-            Welcome to the 7th Annual Hackers & Addicts Open. 12 golfers, 2 teams, 3 days of grueling match play across Iowa's finest courses.
+            Welcome to the 7th Annual Hackers & Addicts Open. 10 golfers, 2 teams, 3 days of grueling match play across Iowa's finest courses.
             The Blue Hackers face off against the Pink Addicts in a quest for eternal glory.<br/>
           </p>
             <p className="text-lg leading-relaxed opacity-60 mb-8">
@@ -247,7 +247,10 @@ function LeaderboardView({ matches }: { matches: Match[] }) {
   const getPointsByDay = (day: string, team: string) => {
     return matches
       .filter(m => m.day === day)
-      .reduce((acc, m) => acc + (team === 'Blue Hackers' ? m.blue_score : m.pink_score), 0);
+      .reduce((acc, m) => {
+        const score = team === 'Blue Hackers' ? m.blue_score : m.pink_score;
+        return acc + score * (m.match_type === '2v2' ? 2 : 1);
+      }, 0);
   };
 
   return (

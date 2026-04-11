@@ -69,8 +69,8 @@ export const ARCHIVE_DATA: ArchiveYear[] = [
 
 export const RULES = [
   "Don't be a RICHARD or you will not be invited back on the trip!",
-  "Match Play - Each 9 hole match is worth 1 point.",
-  "Halved matches result in 0.5 points for each team.",
+  "Match Play - Each singles match is worth 1 point and 2v2 are worth 2 points.",
+  "Halved matches will split points to each team.",
   "All lost balls to be treated as lateral hazards - No stroke and distance.",
   "May improve lie within 1 foot of ball in same type of rough, sand, other.",
   "Maximum score on any hole is Net Triple Bogey for pace of play.",
@@ -181,9 +181,9 @@ export const INITIAL_MATCHES: Match[] = [
   { id: 13, day: 'Friday',   session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 14, day: 'Friday',   session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   // Saturday — Front 9 (2x 2v2, 1x 1v1) — Blue solo: Fitzke | Pink solo: Kardell
-  { id: 15, day: 'Saturday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Swart', 'Wakefield'],   team_pink_players: ['Sorum', 'DeMarco'],   blue_score: 0, pink_score: 0, winner: null },
+  { id: 15, day: 'Saturday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Swart', 'Fitzke'],      team_pink_players: ['Sorum', 'DeMarco'],   blue_score: 0, pink_score: 0, winner: null },
   { id: 16, day: 'Saturday', session: 'Front 9', match_type: '2v2', team_blue_players: ['Thompson', 'Rohrbaugh'], team_pink_players: ['Fabian', 'Koehler'],  blue_score: 0, pink_score: 0, winner: null },
-  { id: 17, day: 'Saturday', session: 'Front 9', match_type: '1v1', team_blue_players: ['Fitzke'], team_pink_players: ['Kardell'], blue_score: 0, pink_score: 0, winner: null },
+  { id: 17, day: 'Saturday', session: 'Front 9', match_type: '1v1', team_blue_players: ['Wakefield'], team_pink_players: ['Kardell'], blue_score: 0, pink_score: 0, winner: null },
   // Saturday — Back 9 (5x 1v1)
   { id: 18, day: 'Saturday', session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
   { id: 19, day: 'Saturday', session: 'Back 9',  match_type: '1v1', team_blue_players: [], team_pink_players: [], blue_score: 0, pink_score: 0, winner: null },
