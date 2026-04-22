@@ -533,7 +533,7 @@ function CrewView() {
     <div className="space-y-14">
       <div>
         <h2 className="text-3xl font-display font-bold tracking-tight">The Crew</h2>
-        <p className="text-emerald-500 font-mono uppercase tracking-widest text-xs mt-2">12 Golfers · 2 Teams · 1 Cup</p>
+        <p className="text-emerald-500 font-mono uppercase tracking-widest text-xs mt-2">10 Golfers · 2 Teams · 1 Cup</p>
       </div>
 
       {/* Blue Hackers */}
@@ -573,7 +573,7 @@ function PlayerCard({ player }: { player: CrewMember }) {
   return (
     <div className="glass-panel rounded-3xl overflow-hidden flex flex-col">
       {/* Photo */}
-      <div className="relative aspect-[3/4] overflow-hidden">
+      <div className="relative aspect-square md:aspect-3/4 overflow-hidden">
         <img
           src={player.image}
           alt={player.name}
