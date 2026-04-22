@@ -334,55 +334,55 @@ function MatchupsView({ matches, handicapMap }: { matches: Match[], handicapMap:
     const pinkHcp = totalHcp(match.team_pink_players, match.match_type);
     const hcpLabel = match.match_type === '1v1' ? 'Player HCP(9H)' : 'Team HCP(9H)';
     return (
-      <div key={match.id} className="glass-panel rounded-2xl overflow-hidden flex flex-col md:flex-row group hover:border-white/20 transition-all">
-        <div className="p-5 flex-1 border-b md:border-b-0 md:border-r border-white/10">
-          <div className="flex justify-between items-start mb-6">
-            <span className="text-[10px] font-mono uppercase bg-white/10 px-3 py-1 rounded-lg font-bold">{match.match_type}</span>
-            <span className="text-md font-display font-medium opacity-40">{match.day} • {match.session}</span>
+      <div key={match.id} className="glass-panel rounded-2xl overflow-hidden flex flex-row group hover:border-white/20 transition-all">
+        <div className="p-3 md:p-5 flex-1 border-r border-white/10">
+          <div className="flex justify-between items-start mb-2 md:mb-6">
+            <span className="text-[10px] font-mono uppercase bg-white/10 px-2 py-0.5 md:px-3 md:py-1 rounded-lg font-bold">{match.match_type}</span>
+            <span className="text-[10px] md:text-md font-display font-medium opacity-40">{match.session}</span>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-4">
-            <div className="space-y-1">
-              <p className="text-[10px] font-mono uppercase text-blue-400 font-bold tracking-widest">Blue Hackers</p>
+          <div className="flex flex-row items-start gap-2 md:gap-4">
+            <div className="space-y-0.5 md:space-y-1 flex-1">
+              <p className="text-[9px] md:text-[10px] font-mono uppercase text-blue-400 font-bold tracking-widest">Blue</p>
               {match.team_blue_players.map(p => (
-                <p key={p} className="text-xl font-display font-bold">
-                  {p} <span className="text-sm font-mono text-blue-400/60">({handicapMap[p] ?? '?'})</span>
+                <p key={p} className="text-sm md:text-xl font-display font-bold leading-tight">
+                  {p} <span className="text-[10px] md:text-sm font-mono text-blue-400/60">({handicapMap[p] ?? '?'})</span>
                 </p>
               ))}
               {match.team_blue_players.length > 0 && (
-                <p className="text-sm font-mono text-blue-400/60 pt-1">{hcpLabel}: {blueHcp}</p>
+                <p className="text-[10px] md:text-sm font-mono text-blue-400/60 pt-0.5 md:pt-1">{hcpLabel}: {blueHcp}</p>
               )}
             </div>
 
-            <div className="text-xs font-mono opacity-20 font-bold py-2 md:py-0 md:px-2">VS</div>
+            <div className="text-[10px] font-mono opacity-20 font-bold px-1 pt-3">VS</div>
 
-            <div className="space-y-1 text-right md:text-left">
-              <p className="text-[10px] font-mono uppercase text-pink-400 font-bold tracking-widest">Pink Addicts</p>
+            <div className="space-y-0.5 md:space-y-1 text-right flex-1">
+              <p className="text-[9px] md:text-[10px] font-mono uppercase text-pink-400 font-bold tracking-widest">Pink</p>
               {match.team_pink_players.map(p => (
-                <p key={p} className="text-xl font-display font-bold">
-                  {p} <span className="text-sm font-mono text-pink-400/60">({handicapMap[p] ?? '?'})</span>
+                <p key={p} className="text-sm md:text-xl font-display font-bold leading-tight">
+                  {p} <span className="text-[10px] md:text-sm font-mono text-pink-400/60">({handicapMap[p] ?? '?'})</span>
                 </p>
               ))}
               {match.team_pink_players.length > 0 && (
-                <p className="text-sm font-mono text-pink-400/60 pt-1">{hcpLabel}: {pinkHcp}</p>
+                <p className="text-[10px] md:text-sm font-mono text-pink-400/60 pt-0.5 md:pt-1">{hcpLabel}: {pinkHcp}</p>
               )}
             </div>
           </div>
         </div>
 
-        <div className="p-8 bg-white/5 w-full md:w-48 flex flex-col justify-center items-center gap-3">
-          <p className="text-[15px] font-mono uppercase opacity-60 font-bold">Match Score</p>
+        <div className="p-3 md:p-8 bg-white/5 w-20 md:w-48 flex flex-col justify-center items-center gap-1.5 md:gap-3">
+          <p className="text-[9px] md:text-[15px] font-mono uppercase opacity-60 font-bold">Score</p>
           {match.blue_score === 0 && match.pink_score === 0 ? (
-            <p className="text-md font-mono opacity-20 italic">TBD</p>
+            <p className="text-[10px] md:text-md font-mono opacity-20 italic">TBD</p>
           ) : (
-            <div className="flex items-center gap-4">
-              <span className="text-4xl font-display font-bold text-blue-400">{match.blue_score}</span>
-              <span className="text-xl opacity-20 font-display">:</span>
-              <span className="text-4xl font-display font-bold text-pink-400">{match.pink_score}</span>
+            <div className="flex items-center gap-1.5 md:gap-4">
+              <span className="text-xl md:text-4xl font-display font-bold text-blue-400">{match.blue_score}</span>
+              <span className="text-xs md:text-xl opacity-20 font-display">:</span>
+              <span className="text-xl md:text-4xl font-display font-bold text-pink-400">{match.pink_score}</span>
             </div>
           )}
           {match.winner && (
-            <div className={`px-4 py-1 rounded-full text-[10px] font-mono uppercase font-bold ${
+            <div className={`px-2 md:px-4 py-0.5 md:py-1 rounded-full text-[8px] md:text-[10px] font-mono uppercase font-bold ${
               match.winner === 'Draw' ? 'bg-white/10 text-white/60' : match.winner.includes('Blue') ? 'bg-blue-500 text-white' : 'bg-pink-500 text-white'
             }`}>
               {match.winner === 'Draw' ? 'Halved' : `${match.winner.split(' ')[0]} Wins`}
@@ -394,14 +394,14 @@ function MatchupsView({ matches, handicapMap }: { matches: Match[], handicapMap:
   };
 
   return (
-    <div className="space-y-12 max-w-2xl">
+    <div className="space-y-6 md:space-y-12 max-w-2xl">
       <div className="flex justify-center">
         <div className="flex bg-white/5 rounded-2xl p-1 border border-white/10">
           {['Thursday', 'Friday', 'Saturday'].map(day => (
             <button
               key={day}
               onClick={() => setSelectedDay(day as any)}
-              className={`px-8 py-3 rounded-xl text-sm font-bold transition-all ${
+              className={`px-3 py-2 md:px-8 md:py-3 rounded-xl text-xs md:text-sm font-bold transition-all ${
                 selectedDay === day ? 'bg-white text-black' : 'text-white/40 hover:text-white/70'
               }`}
             >
@@ -411,10 +411,10 @@ function MatchupsView({ matches, handicapMap }: { matches: Match[], handicapMap:
         </div>
       </div>
 
-      <div className="space-y-16">
-        <section className="space-y-8">
+      <div className="space-y-8 md:space-y-16">
+        <section className="space-y-4 md:space-y-8">
           <div className="flex items-center gap-4">
-            <h3 className="text-2xl font-display font-bold tracking-tight">Front 9 Matches</h3>
+            <h3 className="text-xl md:text-2xl font-display font-bold tracking-tight">Front 9 Matches</h3>
             <div className="h-px flex-1 bg-white/10" />
           </div>
           <div className="grid grid-cols-1 gap-6">
@@ -426,9 +426,9 @@ function MatchupsView({ matches, handicapMap }: { matches: Match[], handicapMap:
           </div>
         </section>
 
-        <section className="space-y-8">
+        <section className="space-y-4 md:space-y-8">
           <div className="flex items-center gap-4">
-            <h3 className="text-2xl font-display font-bold tracking-tight">Back 9 Matches</h3>
+            <h3 className="text-xl md:text-2xl font-display font-bold tracking-tight">Back 9 Matches</h3>
             <div className="h-px flex-1 bg-white/10" />
           </div>
           <div className="grid grid-cols-1 gap-6">
@@ -445,39 +445,55 @@ function MatchupsView({ matches, handicapMap }: { matches: Match[], handicapMap:
 }
 
 function ScheduleView() {
+  const [selectedDay, setSelectedDay] = useState(SCHEDULE[0].day);
+  const day = SCHEDULE.find(d => d.day === selectedDay)!;
+
   return (
-    <div className="space-y-14">
-      {SCHEDULE.map((day) => (
-        <div key={day.day}>
-          <div className="mb-8">
-            <h2 className="text-[1.3125rem] font-display font-bold tracking-tight">{day.day} the {(day as any).date}</h2>
-            <p className="flex items-center gap-2 text-emerald-500 font-mono uppercase tracking-widest text-[0.525rem] mt-2">
-              <MapPin size={12} /> {day.location}
-            </p>
-          </div>
+    <div className="space-y-6 md:space-y-10">
+      {/* Day Selector */}
+      <div className="flex gap-1.5 md:gap-2 overflow-x-auto pb-1">
+        {SCHEDULE.map(d => (
+          <button
+            key={d.day}
+            onClick={() => setSelectedDay(d.day)}
+            className={`shrink-0 px-3 py-1.5 md:px-6 md:py-3 rounded-xl text-[10px] md:text-sm font-bold font-mono transition-all border ${
+              selectedDay === d.day
+                ? 'bg-white text-black border-white'
+                : 'border-white/10 text-white/40 hover:text-white/70 bg-white/5'
+            }`}
+          >
+            {d.day.slice(0, 3)} {d.date}
+          </button>
+        ))}
+      </div>
 
-          <div className="relative">
-            {/* Vertical timeline line */}
-            <div className="absolute left-[7px] top-3 bottom-3 w-px bg-emerald-500/25" />
+      {/* Day Header */}
+      <div>
+        <h2 className="text-[1.3125rem] md:text-3xl font-display font-bold tracking-tight">
+          {day.day} the {(day as any).date}
+        </h2>
+        <p className="flex items-center gap-2 text-emerald-500 font-mono uppercase tracking-widest text-[0.525rem] md:text-xs mt-2">
+          <MapPin size={12} /> {day.location}
+        </p>
+      </div>
 
-            <div className="space-y-3">
-              {day.events.map((event, eIdx) => (
-                <div key={eIdx} className="flex items-start gap-5">
-                  {/* Dot */}
-                  <div className="shrink-0 w-[15px] flex justify-center mt-5 relative z-10">
-                    <div className="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                  </div>
-                  {/* Card */}
-                  <div className="flex-1 bg-white/5 border border-white/5 rounded-2xl p-5">
-                    <p className="text-emerald-500 font-mono text-[0.6125rem] font-bold mb-2">{event.time}</p>
-                    <p className="text-white font-display font-bold text-sm">{event.activity}</p>
-                  </div>
-                </div>
-              ))}
+      {/* Timeline */}
+      <div className="relative">
+        <div className="absolute left-[7px] top-3 bottom-3 w-px bg-emerald-500/25" />
+        <div className="space-y-3 md:space-y-5">
+          {day.events.map((event, eIdx) => (
+            <div key={eIdx} className="flex items-start gap-5">
+              <div className="shrink-0 w-[15px] flex justify-center mt-5 relative z-10">
+                <div className="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+              </div>
+              <div className="flex-1 bg-white/5 border border-white/5 rounded-2xl p-5 md:p-7">
+                <p className="text-emerald-500 font-mono text-[0.6125rem] md:text-sm font-bold mb-2">{event.time}</p>
+                <p className="text-white font-display font-bold text-sm md:text-xl">{event.activity}</p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
@@ -636,32 +652,32 @@ function PlayerCard({ player }: { player: CrewMember }) {
 function RulesView() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <section className="glass-panel p-8 rounded-3xl">
-        <h3 className="text-2xl font-display font-bold mb-8 flex items-center gap-3">
+      <section className="glass-panel p-5 md:p-8 rounded-3xl">
+        <h3 className="text-xl md:text-2xl font-display font-bold mb-4 md:mb-8 flex items-center gap-3">
           <ShieldCheck className="accent-text" />
           Tournament Rules
         </h3>
-        <ul className="space-y-8">
+        <ul className="space-y-4 md:space-y-8">
           {RULES.map((rule, idx) => (
-            <li key={idx} className="flex gap-6 items-start group">
-              <span className="font-mono text-[15px] opacity-20 group-hover:opacity-100 transition-opacity mt-1 font-bold">0{idx + 1}</span>
-              <p className="text-lg leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity">{rule}</p>
+            <li key={idx} className="flex gap-3 md:gap-6 items-start group">
+              <span className="font-mono text-xs md:text-[15px] opacity-20 group-hover:opacity-100 transition-opacity mt-1 font-bold">0{idx + 1}</span>
+              <p className="text-sm md:text-lg leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity">{rule}</p>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="glass-panel p-8 rounded-3xl">
-        <h3 className="text-2xl font-display font-bold mb-8 flex items-center gap-3">
+      <section className="glass-panel p-5 md:p-8 rounded-3xl">
+        <h3 className="text-xl md:text-2xl font-display font-bold mb-4 md:mb-8 flex items-center gap-3">
           <Gift className="accent-text" />
           Cash & Prizes
         </h3>
-        <div className="space-y-4">
+        <div className="space-y-3 md:space-y-4">
           {PRIZES.map((prize, idx) => (
-            <div key={idx} className="p-6 bg-white/5 rounded-2xl border border-white/5 flex justify-between items-center group hover:bg-white hover:text-black transition-all duration-500 cursor-default">
+            <div key={idx} className="p-4 md:p-6 bg-white/5 rounded-2xl border border-white/5 flex justify-between items-center group hover:bg-white hover:text-black transition-all duration-500 cursor-default">
               <div>
-                <p className="text-[15px] font-mono uppercase opacity-40 group-hover:opacity-60 font-bold mb-1">{prize.rank}</p>
-                <p className="font-bold text-xl tracking-tight">{prize.reward}</p>
+                <p className="text-xs md:text-[15px] font-mono uppercase opacity-40 group-hover:opacity-60 font-bold mb-1">{prize.rank}</p>
+                <p className="font-bold text-base md:text-xl tracking-tight">{prize.reward}</p>
               </div>
               <ChevronRight className="opacity-20 group-hover:opacity-100 transition-all transform group-hover:translate-x-1" />
             </div>
@@ -687,12 +703,12 @@ function ArchiveView() {
       </div>
 
       {/* Year Selector */}
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-2 md:gap-3">
         {ARCHIVE_DATA.map(d => (
           <button
             key={d.year}
             onClick={() => setSelectedYear(d.year)}
-            className={`px-5 py-2 rounded-xl text-sm font-mono font-bold transition-all border ${
+            className={`px-3 py-1.5 md:px-5 md:py-2 rounded-xl text-xs md:text-sm font-mono font-bold transition-all border ${
               selectedYear === d.year
                 ? 'bg-emerald-500 text-black border-emerald-500'
                 : 'border-white/10 text-white/40 hover:text-emerald-500 hover:border-emerald-500/40'
